@@ -5,11 +5,25 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/posts`,
+        name: 'posts',
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [],
+      },
+    },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        // One convention is to place your Netlify CMS customization code in a
-        // `src/cms` directory.
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },

@@ -15,12 +15,16 @@ const PostTemplate = ({ data }) => {
         <meta name="description" content={description} />
         <link rel="canonical" href={`https://www.heeryongkang.me${fields.slug}`} />
         {/* Facebook Open Graph */}
+        <meta property="fb:app_id" content="191342008318335" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://www.heeryongkang.me${fields.slug}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={`https://www.heeryongkang.me${thumbnail}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={date} />
+        <meta property="article:modified_time" content={date} />
         <meta property="article:author" content="Heeryong Kang" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />

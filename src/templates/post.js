@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 const PostTemplate = ({ data }) => {
   const { markdownRemark } = data;
-  const { frontmatter, html, timeToRead } = markdownRemark;
+  const { frontmatter, fields, html, timeToRead } = markdownRemark;
 
   const { title, date, description, thumbnail, tags } = frontmatter;
 
@@ -13,6 +13,21 @@ const PostTemplate = ({ data }) => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link rel="canonical" href={`https://www.heeryongkang.me${fields.slug}`} />
+        {/* Facebook Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.heeryongkang.me${fields.slug}`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`https://www.heeryongkang.me${thumbnail}`} />
+        <meta property="article:published_time" content={date} />
+        <meta property="article:author" content="Heeryong Kang" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content={`https://www.heeryongkang.me${fields.slug}`} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={`https://www.heeryongkang.me${thumbnail}`} />
       </Helmet>
       <Container>
         <Row>
@@ -41,6 +56,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date

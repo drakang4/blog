@@ -17,9 +17,12 @@ const Layout = ({ children }) => (
   <Fragment>
     <Helmet>
       <html lang="ko" />
-      <title>Gatsby Default Starter</title>
-      <meta name="description" content="Sample" />
-      <meta name="keywords" content="sample, something" />
+      <title>Heeryong Kang</title>
+      <meta name="description" content="Heeryong Kang's blog" />
+      {/* <link rel="icon" sizes="192x192" href="/path/to/icon.png"> */}
+      {/* <link rel="apple-touch-icon" href="/custom-icon.png"> */}
+      {/* <link rel="mask-icon" href="/path/to/icon.svg" color="blue"> */}
+
     </Helmet>
     <Header />
     {children()}

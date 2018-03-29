@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Heeryong Kang Blog',
+    siteURL: 'https://www.heeryongkang.me',
   },
   plugins: [
     'gatsby-plugin-react-next',
@@ -35,5 +36,6 @@ module.exports = {
         head: false,
       },
     },
+    'gatsby-plugin-sitemap',
   ],
 };

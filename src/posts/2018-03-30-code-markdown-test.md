@@ -6,7 +6,7 @@ thumbnail: /images/f_2013_225.jpg
 tags:
   - code
 ---
-```
+```jsx
 import React from 'react';
 
 const Example = () => {

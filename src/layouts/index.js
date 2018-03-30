@@ -6,8 +6,10 @@ import brands from '@fortawesome/fontawesome-free-brands'
 import moment from 'moment';
 
 import Header from '../components/Header';
+// import Footer from '../components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 fontawesome.library.add(brands);
 
@@ -26,6 +28,7 @@ const Layout = ({ children }) => (
     </Helmet>
     <Header />
     {children()}
+    <Footer />
   </Fragment>
 );
 

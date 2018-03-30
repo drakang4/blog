@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Heeryong Kang Blog',
-    siteURL: 'https://www.heeryongkang.me',
+    siteUrl: 'https://www.heeryongkang.me',
   },
   plugins: [
     'gatsby-plugin-react-next',

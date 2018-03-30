@@ -9,21 +9,21 @@ const PostTemplate = ({ data }) => {
   const { title, date, description, thumbnail, tags } = frontmatter;
   
   const { siteMetadata } = site;
-  const { siteURL } = siteMetadata;
+  const { siteUrl } = siteMetadata;
 
   return (
     <article className="my-4">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={`${siteURL}${fields.slug}`} />
+        <link rel="canonical" href={`${siteUrl}${fields.slug}`} />
         {/* Facebook Open Graph */}
         <meta property="fb:app_id" content="191342008318335" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${siteURL}${fields.slug}`} />
+        <meta property="og:url" content={`${siteUrl}${fields.slug}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${siteURL}${thumbnail}`} />
+        <meta property="og:image" content={`${siteUrl}${thumbnail}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={date} />
@@ -31,10 +31,10 @@ const PostTemplate = ({ data }) => {
         <meta property="article:author" content="Heeryong Kang" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content={`${siteURL}${fields.slug}`} />
+        <meta name="twitter:url" content={`${siteUrl}${fields.slug}`} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${siteURL}${thumbnail}`} />
+        <meta name="twitter:image" content={`${siteUrl}${thumbnail}`} />
       </Helmet>
       <Container>
         <Row>
@@ -62,7 +62,7 @@ export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     site {
       siteMetadata {
-        siteURL
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

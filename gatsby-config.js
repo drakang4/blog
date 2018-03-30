@@ -19,7 +19,11 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [],
+        plugins: [
+          'gatsby-remark-images',
+          'gatsby-remark-responsive-iframe',
+          'gatsby-remark-prismjs',
+        ],
       },
     },
     {

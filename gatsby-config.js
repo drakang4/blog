@@ -14,18 +14,26 @@ module.exports = {
         name: 'posts',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 960,
+              linkImagesToOriginal: false,
+            },
+          },
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-responsive-iframe',
           'gatsby-remark-prismjs',
         ],
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

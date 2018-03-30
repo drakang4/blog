@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
     </Helmet>
     <Header />
     {children()}
-    <Footer />
+    {/* <Footer /> */}
   </Fragment>
 );
 

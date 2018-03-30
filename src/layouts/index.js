@@ -10,6 +10,7 @@ import Header from '../components/Header';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'prismjs/themes/prism-tomorrow.css';
+import './index.css';
 
 fontawesome.library.add(brands);
 

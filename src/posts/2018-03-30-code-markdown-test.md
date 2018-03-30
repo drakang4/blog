@@ -19,3 +19,7 @@ const Example = () => {
 
 export default Example;
 ```
+
+Image file:
+
+![](/images/f_2013_002_factes.jpg)

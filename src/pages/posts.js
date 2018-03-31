@@ -7,17 +7,17 @@ const PostsPage = ({ data }) => {
   const { allMarkdownRemark } = data;
 
   return (
-    <Container className="my-4">
+    <Container className="my-5">
       <Row>
         <Col md={10} lg={8} className="mx-auto">
           {allMarkdownRemark.edges.map(({ node }) => (
-            <Fragment key={node.frontmatter.title}>
-              <div>
+            <Row key={node.frontmatter.title} className="mb-4">
+              <Col>
                 <Link to={node.fields.slug}>
                   <h1>{node.frontmatter.title}</h1>
                 </Link>
                 <div>
-                  <p>{node.frontmatter.description}</p>
+                  <p>{node.excerpt}</p>
                   <div>
                     {moment(node.frontmatter.date).format('MMMM Do, YYYY')}
                   </div>
@@ -25,13 +25,15 @@ const PostsPage = ({ data }) => {
                 <div className="tags">
                   {node.frontmatter.tags.map(tag => (
                     <Link key={tag} to={`/tags/${tag}`}>
-                      <Badge>{tag}</Badge>
+                      <Badge className="mr-1">{tag}</Badge>
                     </Link>
                   ))}
                 </div>
-              </div>
-              <hr />
-            </Fragment>
+              </Col>
+              <Col xs={3} sm={3} md={4} lg={4} xl={4}>
+                <img src={node.frontmatter.thumbnail} />
+              </Col>
+            </Row>
           ))}
         </Col>
       </Row>
@@ -46,13 +48,13 @@ export const allPostsQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
             title
             date
-            description
             thumbnail
             tags
           }

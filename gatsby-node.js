@@ -28,7 +28,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 frontmatter {
                   title
                   date
-                  description
                   thumbnail
                   tags
                 }

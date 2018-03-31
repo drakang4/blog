@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
+import moment from 'moment';
 
 const PostTemplate = ({ data }) => {
   const { markdownRemark, site } = data;
@@ -12,7 +13,7 @@ const PostTemplate = ({ data }) => {
   const { siteUrl } = siteMetadata;
 
   return (
-    <article className="my-4">
+    <article className="my-5">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -40,7 +41,15 @@ const PostTemplate = ({ data }) => {
         <Row>
           <Col md={10} lg={8} className="mx-auto">
             <h1 className>{title}</h1>
-            <h5 className>{`${date} ${timeToRead} min read`}</h5>
+            <div className>
+              <time dateTime={date}>
+                {moment(date).format('LL')}
+              </time>
+              <span> · </span>
+              <span>
+                {timeToRead} 분 분량
+              </span>
+            </div>
           </Col>
         </Row>
         <Row className="my-3">

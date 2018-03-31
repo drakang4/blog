@@ -6,7 +6,7 @@ import brands from '@fortawesome/fontawesome-free-brands'
 import moment from 'moment';
 
 import Header from '../components/Header';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'prismjs/themes/prism-tomorrow.css';
@@ -29,7 +29,7 @@ const Layout = ({ children }) => (
     </Helmet>
     <Header />
     {children()}
-    {/* <Footer /> */}
+    <Footer />
   </Fragment>
 );
 

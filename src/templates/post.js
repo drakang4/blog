@@ -5,10 +5,10 @@ import moment from 'moment';
 
 const PostTemplate = ({ data }) => {
   const { markdownRemark, site } = data;
-  
+
   const { frontmatter, fields, html, timeToRead } = markdownRemark;
   const { title, date, description, thumbnail, tags } = frontmatter;
-  
+
   const { siteMetadata } = site;
   const { siteUrl } = siteMetadata;
 
@@ -42,13 +42,9 @@ const PostTemplate = ({ data }) => {
           <Col md={10} lg={8} className="mx-auto">
             <h1 className>{title}</h1>
             <div className>
-              <time dateTime={date}>
-                {moment(date).format('LL')}
-              </time>
+              <time dateTime={date}>{moment(date).format('LL')}</time>
               <span> · </span>
-              <span>
-                {timeToRead} 분 분량
-              </span>
+              <span>{timeToRead} 분 분량</span>
             </div>
           </Col>
         </Row>
@@ -59,6 +55,11 @@ const PostTemplate = ({ data }) => {
             className="mx-auto"
             dangerouslySetInnerHTML={{ __html: html }}
           />
+        </Row>
+        <Row>
+          <Col md={10} lg={8} className="mx-auto">
+          <div className="fb-comments" data-href={`${siteUrl}${fields.slug}`} data-numposts="10" data-width="100%" />
+          </Col>
         </Row>
       </Container>
     </article>

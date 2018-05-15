@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 import { Container, Row, Col, Badge } from 'reactstrap';
 import moment from 'moment';
 
@@ -30,8 +31,12 @@ const PostsPage = ({ data }) => {
                   ))}
                 </div>
               </Col>
-              <Col xs={3} sm={3} md={4} lg={4} xl={4}>
-                <img src={node.frontmatter.thumbnail} />
+              <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
+                <Img
+                  resolutions={
+                    node.frontmatter.thumbnail.childImageSharp.resolutions
+                  }
+                />
               </Col>
             </Row>
           ))}
@@ -55,7 +60,13 @@ export const allPostsQuery = graphql`
           frontmatter {
             title
             date
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                resolutions(width: 125, height: 125, quality: 80) {
+                  ...GatsbyImageSharpResolutions_withWebp
+                }
+              }
+            }
             tags
           }
         }

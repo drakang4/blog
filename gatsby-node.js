@@ -25,13 +25,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 fields {
                   slug
                 }
-                frontmatter {
-                  title
-                  date
-                  thumbnail
-                  tags
-                }
-                timeToRead
               }
             }
           }
@@ -65,7 +58,11 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
 
   if (node.internal.type === 'MarkdownRemark') {
-    const relativePath = createFilePath({ node, getNode, basePath: 'src/posts' });
+    const relativePath = createFilePath({
+      node,
+      getNode,
+      basePath: 'src/posts',
+    });
     createNodeField({
       name: 'slug',
       node,

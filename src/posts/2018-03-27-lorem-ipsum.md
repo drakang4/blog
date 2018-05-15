@@ -2,11 +2,12 @@
 title: Lorem Ipsum
 date: '2018-03-27T14:14:33+09:00'
 description: Markdown blog exmaple
-thumbnail: /images/p1060176.jpg
+thumbnail: assets/images/p1060176.jpg
 tags:
   - tag
   - another tag
 ---
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at libero non nulla vulputate ullamcorper. Aliquam sed felis quis eros mattis varius vitae a nunc. Donec placerat felis sit amet tempor aliquam. Ut elementum, ex et interdum pharetra, lacus tortor tristique metus, vel interdum arcu turpis in metus. Fusce ullamcorper sapien vel turpis tincidunt, in malesuada est accumsan. In ipsum lorem, luctus et urna et, ullamcorper malesuada orci. Integer at tortor nec ex pulvinar rutrum. Suspendisse ullamcorper, libero sit amet cursus sollicitudin, libero dui faucibus elit, nec mattis magna nibh nec risus. Aliquam est ipsum, luctus id eros ut, ornare gravida augue. Donec semper ante nibh, vel consectetur enim pulvinar ut. Aenean mollis tristique suscipit.
 
 Aliquam fermentum quam eget purus dictum, id euismod est semper. Ut auctor maximus purus a commodo. Aenean bibendum elit posuere, luctus risus non, pharetra lacus. Suspendisse accumsan dui diam, et aliquam lacus posuere quis. Aenean quam est, rhoncus nec est vitae, tempus vulputate sem. Suspendisse sagittis eros et dictum laoreet. Donec nisl felis, egestas vel efficitur in, malesuada vitae ligula. Nulla suscipit tempus odio id malesuada. Sed pulvinar ex et enim imperdiet, vitae ornare mauris viverra. Nunc vel eros ac odio ullamcorper ornare.

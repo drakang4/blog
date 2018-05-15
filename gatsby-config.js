@@ -7,6 +7,8 @@ module.exports = {
     'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -23,6 +25,7 @@ module.exports = {
             options: {
               maxWidth: 960,
               linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
             },
           },
           'gatsby-remark-autolink-headers',
@@ -32,8 +35,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

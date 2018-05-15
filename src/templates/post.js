@@ -24,7 +24,10 @@ const PostTemplate = ({ data }) => {
         <meta property="og:url" content={`${siteUrl}${fields.slug}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${siteUrl}${thumbnail}`} />
+        <meta
+          property="og:image"
+          content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={date} />
@@ -35,32 +38,46 @@ const PostTemplate = ({ data }) => {
         <meta name="twitter:url" content={`${siteUrl}${fields.slug}`} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${siteUrl}${thumbnail}`} />
+        <meta
+          name="twitter:image"
+          content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
+        />
       </Helmet>
       <Container>
-        <Row>
-          <Col md={10} lg={8} className="mx-auto">
-            <h1 className>{title}</h1>
-            <div className>
-              <time dateTime={date}>{moment(date).format('LL')}</time>
-              <span> · </span>
-              <span>{timeToRead} 분 분량</span>
-            </div>
-          </Col>
-        </Row>
-        <Row className="my-3">
-          <Col
-            md={10}
-            lg={8}
-            className="mx-auto"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </Row>
-        <Row>
-          <Col md={10} lg={8} className="mx-auto">
-          <div className="fb-comments" data-href={`${siteUrl}${fields.slug}`} data-numposts="10" data-width="100%" />
-          </Col>
-        </Row>
+        <header>
+          <Row>
+            <Col md={10} lg={8} className="mx-auto">
+              <h1 className>{title}</h1>
+              <div className>
+                <time dateTime={date}>{moment(date).format('LL')}</time>
+                <span> · </span>
+                <span>{timeToRead} 분 분량</span>
+              </div>
+            </Col>
+          </Row>
+        </header>
+        <section>
+          <Row className="my-3">
+            <Col
+              md={10}
+              lg={8}
+              className="mx-auto"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </Row>
+        </section>
+        <section>
+          <Row>
+            <Col md={10} lg={8} className="mx-auto">
+              <div
+                className="fb-comments"
+                data-href={`${siteUrl}${fields.slug}`}
+                data-numposts="10"
+                data-width="100%"
+              />
+            </Col>
+          </Row>
+        </section>
       </Container>
     </article>
   );
@@ -85,7 +102,13 @@ export const pageQuery = graphql`
         title
         date
         description
-        thumbnail
+        thumbnail {
+          childImageSharp {
+            sizes(maxWidth: 1200, quality: 80) {
+              src
+            }
+          }
+        }
         tags
       }
       timeToRead

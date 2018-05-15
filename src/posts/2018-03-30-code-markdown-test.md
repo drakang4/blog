@@ -1,12 +1,10 @@
 ---
 title: Code markdown test
 date: '2018-03-30T15:51:01+09:00'
-description: zz
-thumbnail: assets/images/f_2013_225.jpg
+thumbnail: /images/p1070062.jpg
 tags:
   - code
 ---
-
 ```jsx
 import React from 'react';
 
@@ -19,4 +17,4 @@ export default Example;
 
 Image file:
 
-![](assets/images/f_2013_002_factes.jpg)
+![null](/images/레이어-0.jpg)

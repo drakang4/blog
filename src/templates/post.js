@@ -6,8 +6,8 @@ import moment from 'moment';
 const PostTemplate = ({ data }) => {
   const { markdownRemark, site } = data;
 
-  const { frontmatter, fields, html, timeToRead } = markdownRemark;
-  const { title, date, description, thumbnail, tags } = frontmatter;
+  const { frontmatter, excerpt, fields, html, timeToRead } = markdownRemark;
+  const { title, date, thumbnail, tags } = frontmatter;
 
   const { siteMetadata } = site;
   const { siteUrl } = siteMetadata;
@@ -16,14 +16,14 @@ const PostTemplate = ({ data }) => {
     <article className="my-5">
       <Helmet>
         <title>{title}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={excerpt} />
         <link rel="canonical" href={`${siteUrl}${fields.slug}`} />
         {/* Facebook Open Graph */}
         <meta property="fb:app_id" content="191342008318335" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${siteUrl}${fields.slug}`} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:description" content={excerpt} />
         <meta
           property="og:image"
           content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
@@ -37,7 +37,7 @@ const PostTemplate = ({ data }) => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={`${siteUrl}${fields.slug}`} />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
+        <meta name="twitter:description" content={excerpt} />
         <meta
           name="twitter:image"
           content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
@@ -93,15 +93,14 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
-      id
       html
+      excerpt
       fields {
         slug
       }
       frontmatter {
         title
         date
-        description
         thumbnail {
           childImageSharp {
             sizes(maxWidth: 1200, quality: 80) {

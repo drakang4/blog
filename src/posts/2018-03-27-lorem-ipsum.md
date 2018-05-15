@@ -1,8 +1,7 @@
 ---
 title: Lorem Ipsum
 date: '2018-03-27T14:14:33+09:00'
-description: Markdown blog exmaple
-thumbnail: assets/images/p1060176.jpg
+thumbnail: /images/p1070065.jpg
 tags:
   - tag
   - another tag

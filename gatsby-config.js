@@ -4,6 +4,9 @@ module.exports = {
     siteUrl: 'https://www.heeryongkang.me',
   },
   plugins: [
+    'gatsby-plugin-react-next',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -18,10 +21,6 @@ module.exports = {
         name: 'posts',
       },
     },
-    'gatsby-plugin-react-next',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
@@ -43,6 +42,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

@@ -67,7 +67,6 @@ export const allPostsQuery = graphql`
                 }
               }
             }
-            # thumbnail
             tags
           }
         }

@@ -69,6 +69,11 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       node,
       value: `/posts${relativePath}`,
     });
+
+    node.frontmatter.thumbnail = path.relative(
+      path.dirname(node.fileAbsolutePath),
+      path.join(__dirname, '/static/', node.frontmatter.thumbnail),
+    );
   }
 
   fmImagesToRelative(node);

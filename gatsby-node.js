@@ -8,6 +8,7 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const changeCase = require('change-case');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
@@ -69,4 +70,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       value: `/posts${relativePath}`,
     });
   }
+
+  fmImagesToRelative(node);
 };

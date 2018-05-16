@@ -4,11 +4,13 @@ module.exports = {
     siteUrl: 'https://www.heeryongkang.me',
   },
   plugins: [
-    'gatsby-plugin-react-next',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/images`,
+        name: 'images',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -16,10 +18,16 @@ module.exports = {
         name: 'posts',
       },
     },
+    'gatsby-plugin-react-next',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-images',
             options: {

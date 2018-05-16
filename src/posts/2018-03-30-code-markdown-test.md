@@ -1,7 +1,7 @@
 ---
 title: Code markdown test
 date: '2018-03-30T15:51:01+09:00'
-thumbnail: assets/images/p1070062.jpg
+thumbnail: /images/p1070062.jpg
 tags:
   - code
 ---
@@ -18,4 +18,4 @@ export default Example;
 
 Image file:
 
-![](assets/images/레이어-0.jpg)
+![](/images/레이어-0.jpg)

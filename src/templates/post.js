@@ -24,10 +24,10 @@ const PostTemplate = ({ data }) => {
         <meta property="og:url" content={`${siteUrl}${fields.slug}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={excerpt} />
-        <meta
+        {/* <meta
           property="og:image"
           content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
-        />
+        /> */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={date} />
@@ -38,10 +38,10 @@ const PostTemplate = ({ data }) => {
         <meta name="twitter:url" content={`${siteUrl}${fields.slug}`} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={excerpt} />
-        <meta
+        {/* <meta
           name="twitter:image"
           content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
-        />
+        /> */}
       </Helmet>
       <Container>
         <header>
@@ -101,13 +101,14 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
-        thumbnail {
-          childImageSharp {
-            sizes(maxWidth: 1200, quality: 80) {
-              src
-            }
-          }
-        }
+        # thumbnail {
+        #   childImageSharp {
+        #     sizes(maxWidth: 1200, quality: 80) {
+        #       src
+        #     }
+        #   }
+        # }
+        thumbnail
         tags
       }
       timeToRead

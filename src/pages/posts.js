@@ -32,11 +32,11 @@ const PostsPage = ({ data }) => {
                 </div>
               </Col>
               <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
-                <Img
+                {/* <Img
                   resolutions={
                     node.frontmatter.thumbnail.childImageSharp.resolutions
                   }
-                />
+                /> */}
               </Col>
             </Row>
           ))}
@@ -60,13 +60,14 @@ export const allPostsQuery = graphql`
           frontmatter {
             title
             date
-            thumbnail {
-              childImageSharp {
-                resolutions(width: 125, height: 125, quality: 80) {
-                  ...GatsbyImageSharpResolutions_withWebp
-                }
-              }
-            }
+            # thumbnail {
+            #   childImageSharp {
+            #     resolutions(width: 125, height: 125, quality: 80) {
+            #       ...GatsbyImageSharpResolutions_withWebp
+            #     }
+            #   }
+            # }
+            thumbnail
             tags
           }
         }

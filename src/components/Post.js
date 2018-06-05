@@ -1,9 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
-import moment from 'moment';
+import format from 'date-fns/format';
+import isThisYear from 'date-fns/is_this_year';
+import ko from 'date-fns/locale/ko';
 
-const PostTemplate = ({ data }) => {
+const Post = data => {
   const { markdownRemark, site } = data;
 
   const { frontmatter, excerpt, fields, html, timeToRead } = markdownRemark;
@@ -13,7 +15,7 @@ const PostTemplate = ({ data }) => {
   const { siteUrl } = siteMetadata;
 
   return (
-    <article className="my-5">
+    <article className="my-3">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={excerpt} />
@@ -47,9 +49,15 @@ const PostTemplate = ({ data }) => {
         <header>
           <Row>
             <Col md={10} lg={8} className="mx-auto">
-              <h1 className>{title}</h1>
-              <div className>
-                <time dateTime={date}>{moment(date).format('LL')}</time>
+              <h1>{title}</h1>
+              <div className="metadata">
+                <time dateTime={date}>
+                  {format(
+                    date,
+                    `${isThisYear(date) ? '' : 'YYYY[년] '}MMM Do`,
+                    { locale: ko },
+                  )}
+                </time>
                 <span> · </span>
                 <span>{timeToRead} 분 분량</span>
               </div>
@@ -83,34 +91,4 @@ const PostTemplate = ({ data }) => {
   );
 };
 
-export default PostTemplate;
-
-export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-    markdownRemark(id: { eq: $id }) {
-      html
-      excerpt
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        date
-        thumbnail {
-          childImageSharp {
-            sizes(maxWidth: 1200, quality: 80) {
-              src
-            }
-          }
-        }
-        tags
-      }
-      timeToRead
-    }
-  }
-`;
+export default Post;

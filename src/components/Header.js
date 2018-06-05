@@ -14,18 +14,39 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class Header extends Component {
   state = {
+    scrolled: false,
     opened: false,
   };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
   handleNavToggle = () => {
     this.setState({ opened: !this.state.opened });
   };
 
+  handleScroll = event => {
+    this.setState({ scrolled: window.scrollY > 0 });
+  };
+
   render() {
+    const { scrolled, opened } = this.state;
+
     return (
       <header>
-        <Container>
-          <Navbar light expand="md">
+        <Navbar
+          light={!scrolled}
+          dark={scrolled}
+          color={scrolled ? 'dark' : 'transparent'}
+          expand="md"
+          role="navigation"
+        >
+          <Container>
             <NavbarBrand tag={Link} to="/">
               Heeryong Kang
             </NavbarBrand>
@@ -46,8 +67,8 @@ class Header extends Component {
                 </NavItem>
               </Nav>
             </Collapse>
-          </Navbar>
-        </Container>
+          </Container>
+        </Navbar>
       </header>
     );
   }

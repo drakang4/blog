@@ -10,11 +10,11 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const changeCase = require('change-case');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve(`src/templates/post.js`);
+    const postContainer = path.resolve(`src/containers/PostContainer.js`);
 
     resolve(
       graphql(`
@@ -42,7 +42,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           const id = edge.node.id;
           createPage({
             path: edge.node.fields.slug,
-            component: postTemplate,
+            component: postContainer,
 
             // additional data can be passed via context
             context: {
@@ -55,8 +55,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   });
 };
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators;
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
     const relativePath = createFilePath({

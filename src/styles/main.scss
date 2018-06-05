@@ -1,0 +1,75 @@
+@import '~open-color/open-color.scss';
+
+$body-color: $oc-gray-8;
+
+$red: $oc-red-5;
+$pink: $oc-pink-5;
+$grape: $oc-grape-5;
+$violet: $oc-violet-5;
+$indigo: $oc-indigo-5;
+$blue: $oc-blue-5;
+$cyan: $oc-cyan-5;
+$teal: $oc-teal-5;
+$green: $oc-green-5;
+$lime: $oc-lime-5;
+$yellow: $oc-yellow-5;
+$orange: $oc-orange-5;
+
+$colors: (
+  'red': $oc-red-5,
+  'pink': $oc-pink-5,
+  'grape': $oc-grape-5,
+  'violet': $oc-violet-5,
+  'indigo': $oc-indigo-5,
+  'blue': $oc-blue-5,
+  'cyan': $oc-cyan-5,
+  'teal': $oc-teal-5,
+  'green': $oc-green-5,
+  'lime': $oc-lime-5,
+  'yellow': $oc-yellow-5,
+  'orange': $oc-orange-5,
+);
+
+$primary: $blue;
+$secondary: $oc-indigo-2;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $oc-gray-1;
+$dark: $oc-gray-8;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
+
+$navbar-toggler-padding-y: 0.25rem;
+$navbar-toggler-padding-x: 0.25rem;
+$navbar-dark-toggler-border-color: none;
+$navbar-light-toggler-border-color: none;
+
+@import '~bootstrap/scss/bootstrap';
+
+h1,
+.h1 {
+  font-weight: 700;
+}
+
+article p {
+  font-size: 1.125rem;
+}
+
+.navbar {
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.metadata {
+  color: $oc-gray-6;
+}

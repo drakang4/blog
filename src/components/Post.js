@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
-import format from 'date-fns/format';
-import isThisYear from 'date-fns/is_this_year';
-import ko from 'date-fns/locale/ko';
+import { DiscussionEmbed } from 'disqus-react';
+import { DateTime } from 'luxon';
 
-const Post = data => {
+const Post = ({ data }) => {
   const { markdownRemark, site } = data;
 
   const { frontmatter, excerpt, fields, html, timeToRead } = markdownRemark;
@@ -28,7 +28,7 @@ const Post = data => {
         <meta property="og:description" content={excerpt} />
         <meta
           property="og:image"
-          content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
+          content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -42,7 +42,7 @@ const Post = data => {
         <meta name="twitter:description" content={excerpt} />
         <meta
           name="twitter:image"
-          content={`${siteUrl}${thumbnail.childImageSharp.sizes.src}`}
+          content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
       </Helmet>
       <Container>
@@ -52,11 +52,14 @@ const Post = data => {
               <h1>{title}</h1>
               <div className="metadata">
                 <time dateTime={date}>
-                  {format(
-                    date,
-                    `${isThisYear(date) ? '' : 'YYYY[년] '}MMM Do`,
-                    { locale: ko },
-                  )}
+                  {DateTime.fromISO(date).toLocaleString({
+                    year:
+                      DateTime.local().year === DateTime.fromISO(date).year
+                        ? undefined
+                        : 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
                 </time>
                 <span> · </span>
                 <span>{timeToRead} 분 분량</span>
@@ -77,11 +80,13 @@ const Post = data => {
         <section>
           <Row>
             <Col md={10} lg={8} className="mx-auto">
-              <div
-                className="fb-comments"
-                data-href={`${siteUrl}${fields.slug}`}
-                data-numposts="10"
-                data-width="100%"
+              <DiscussionEmbed
+                shortname="heeryongkang"
+                config={{
+                  url: `${siteUrl}${fields.slug}`,
+                  identifier: fields.slug,
+                  title,
+                }}
               />
             </Col>
           </Row>
@@ -89,6 +94,10 @@ const Post = data => {
       </Container>
     </article>
   );
+};
+
+Post.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Post;

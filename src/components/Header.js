@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import {
   Collapse,
   Container,
@@ -10,39 +10,28 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends Component {
   state = {
-    scrolled: false,
     opened: false,
   };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
 
   handleNavToggle = () => {
     this.setState({ opened: !this.state.opened });
   };
 
-  handleScroll = event => {
-    this.setState({ scrolled: window.scrollY > 0 });
-  };
-
   render() {
-    const { scrolled, opened } = this.state;
+    const { opened } = this.state;
 
     return (
       <header>
         <Navbar
-          light={!scrolled}
-          dark={scrolled}
-          color={scrolled ? 'dark' : 'transparent'}
+          // light={!scrolled}
+          // dark={scrolled}
+          // color={scrolled ? 'dark' : 'transparent'}
+          light
+          color="transparent"
           expand="md"
           role="navigation"
         >
@@ -51,11 +40,11 @@ class Header extends Component {
               Heeryong Kang
             </NavbarBrand>
             <NavbarToggler onClick={this.handleNavToggle} />
-            <Collapse navbar isOpen={this.state.opened}>
+            <Collapse navbar isOpen={opened}>
               <Nav className="mr-auto" navbar>
                 <NavItem>
-                  <NavLink tag={Link} to="/posts">
-                    Blog
+                  <NavLink tag={Link} to="/blog">
+                    블로그
                   </NavLink>
                 </NavItem>
               </Nav>

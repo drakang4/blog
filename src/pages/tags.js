@@ -1,11 +1,8 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 const TagsPage = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+  return <div />;
 };
 
 export default TagsPage;

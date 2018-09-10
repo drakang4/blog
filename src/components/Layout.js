@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import fontawesome from '@fortawesome/fontawesome';
-import brands from '@fortawesome/fontawesome-free-brands';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGithub } from '@fortawesome/fontawesome-free-brands';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -10,10 +10,10 @@ import Footer from './Footer';
 import '../styles/main.scss';
 import 'prismjs/themes/prism-tomorrow.css';
 
-fontawesome.library.add(brands);
+library.add(faGithub);
 
 const Layout = ({ children }) => (
-  <Fragment>
+  <>
     <Helmet>
       <html lang="ko" />
       <title>Heeryong Kang</title>
@@ -25,7 +25,11 @@ const Layout = ({ children }) => (
     <Header />
     <main role="main">{children}</main>
     <Footer />
-  </Fragment>
+  </>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Layout;

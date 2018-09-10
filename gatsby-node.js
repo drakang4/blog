@@ -5,16 +5,16 @@
  */
 
 // You can delete this file if you're not using it
+require('@babel/polyfill');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const changeCase = require('change-case');
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const postContainer = path.resolve(`src/containers/PostContainer.js`);
+    const PostTemplate = path.resolve(`src/templates/PostTemplate.js`);
 
     resolve(
       graphql(`
@@ -42,7 +42,7 @@ exports.createPages = ({ actions, graphql }) => {
           const id = edge.node.id;
           createPage({
             path: edge.node.fields.slug,
-            component: postContainer,
+            component: PostTemplate,
 
             // additional data can be passed via context
             context: {
@@ -67,7 +67,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: 'slug',
       node,
-      value: `/posts${relativePath}`,
+      value: `/blog${relativePath}`,
     });
 
     node.frontmatter.thumbnail = path.relative(
@@ -75,6 +75,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       path.join(__dirname, '/static/', node.frontmatter.thumbnail),
     );
   }
-
-  fmImagesToRelative(node);
 };

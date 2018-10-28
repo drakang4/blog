@@ -5,7 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-require('@babel/polyfill');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const changeCase = require('change-case');

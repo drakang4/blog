@@ -42,18 +42,18 @@ class Header extends Component {
             <NavbarToggler onClick={this.handleNavToggle} />
             <Collapse navbar isOpen={opened}>
               <Nav className="mr-auto" navbar>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} to="/blog">
                     블로그
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
               </Nav>
               <Nav className="ml-auto justify-content-right" navbar>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink href="https://github.com/drakang4">
                     <FontAwesomeIcon icon={['fab', 'github']} />
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
               </Nav>
             </Collapse>
           </Container>

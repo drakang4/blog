@@ -1,6 +1,6 @@
 @import '~open-color/open-color.scss';
 
-$body-color: $oc-gray-8;
+$body-color: $oc-gray-7;
 
 $red: $oc-red-5;
 $pink: $oc-pink-5;
@@ -55,10 +55,39 @@ $navbar-toggler-padding-x: 0.25rem;
 $navbar-dark-toggler-border-color: none;
 $navbar-light-toggler-border-color: none;
 
+$headings-margin-bottom: 16px;
+$headings-font-weight: 700;
+$headings-line-height: 1.5;
+
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.25rem;
+$h5-font-size: 1.125rem;
+$h6-font-size: 1rem;
+
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-  font-weight: 700;
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  color: $oc-gray-9;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  color: $oc-gray-8;
+}
+
+li {
+  margin-bottom: 0.25rem;
 }
 
 article p {
@@ -71,4 +100,8 @@ article p {
 
 .metadata {
   color: $oc-gray-6;
+}
+
+.font-size-1 {
+  font-size: 1rem;
 }

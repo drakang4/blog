@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub } from '@fortawesome/fontawesome-free-brands';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/fontawesome-free-brands';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -10,7 +11,7 @@ import Footer from './Footer';
 import '../styles/main.scss';
 import 'prismjs/themes/prism-tomorrow.css';
 
-library.add(faGithub);
+library.add(faEnvelope, faGithub, faLinkedin);
 
 const Layout = ({ children }) => (
   <>

@@ -24,16 +24,22 @@ const IndexPage = () => {
             <h3>연락처</h3>
             <ul class="list-unstyled">
               <li className="mb-3">
-                <FontAwesomeIcon icon="envelope" size="lg" className="mr-3" />
+                <FontAwesomeIcon
+                  icon="envelope"
+                  size="lg"
+                  fixedWidth
+                  className="mr-3"
+                />
                 <a href="mailto:hi@heeryongkang.me">hi@heeryongkang.me</a>
               </li>
               <li className="mb-3">
                 <FontAwesomeIcon
                   icon={['fab', 'github']}
                   size="lg"
+                  fixedWidth
                   className="mr-3"
                 />
-                <a href="https://github.com/drakang4" target="_black">
+                <a href="https://github.com/drakang4" target="_blank">
                   github.com/drakang4
                 </a>
               </li>
@@ -41,9 +47,10 @@ const IndexPage = () => {
                 <FontAwesomeIcon
                   icon={['fab', 'linkedin']}
                   size="lg"
+                  fixedWidth
                   className="mr-3"
                 />
-                <a href="https://www.linkedin.com/in/drakang4" target="_black">
+                <a href="https://www.linkedin.com/in/drakang4" target="_blank">
                   linkedin.com/in/drakang4
                 </a>
               </li>
@@ -81,12 +88,10 @@ const IndexPage = () => {
             <h3>이력</h3>
             <Row>
               <Col>
-                <h5 className="mb-0">
-                  눔코리아
-                  <time className="font-weight-light font-size-1 ml-2">
-                    2017.11 - 2018.02
-                  </time>
-                </h5>
+                <h5 className="mb-0 d-inline-block">눔코리아</h5>
+                <span className="font-weight-light font-size-1 ml-2">
+                  2017.11 - 2018.02
+                </span>
                 <p>그로스 엔지니어 인턴</p>
                 <ul>
                   <li>
@@ -104,12 +109,20 @@ const IndexPage = () => {
             <h3>사이드 프로젝트</h3>
             <Row>
               <Col>
-                <h5 className="mb-1">
+                <h5 className="mb-1 d-inline-block">
                   Jamak: 크로스 플랫폼 자막 파일 에디터
-                  <time className="font-weight-light font-size-1 ml-2">
-                    In Progress
-                  </time>
+                  <a href="https://github.com/drakang4/jamak" target="_blank">
+                    <FontAwesomeIcon
+                      icon="external-link-alt"
+                      size="sm"
+                      className="ml-2 d-print-none"
+                    />
+                  </a>
                 </h5>
+
+                <span className="font-weight-light font-size-1 ml-2">
+                  In Progress
+                </span>
                 <ul>
                   <li>Electron IPC를 활용해 메인 프로세스와 렌더러 프로세스</li>
                   <li>커뮤니케이션 Redux 기반 상태 관리</li>
@@ -122,12 +135,22 @@ const IndexPage = () => {
             </Row>
             <Row>
               <Col>
-                <h5 className="mb-1">
+                <h5 className="mb-1 d-inline-block">
                   GFCalendar: 아이돌 스케줄, 콘텐츠 제공 웹 앱
-                  <time className="font-weight-light font-size-1 ml-2">
-                    2017.03 - 2017.06
-                  </time>
+                  <a
+                    href="https://github.com/drakang4/gfcalendar-demo"
+                    target="_blank"
+                  >
+                    <FontAwesomeIcon
+                      icon="external-link-alt"
+                      size="sm"
+                      className="ml-2 d-print-none"
+                    />
+                  </a>
                 </h5>
+                <span className="font-weight-light font-size-1 ml-2">
+                  2017.03 - 2017.06
+                </span>
                 <ul>
                   <li>
                     react-virtualized를 사용하여 많은 데이터를 효과적으로
@@ -148,8 +171,18 @@ const IndexPage = () => {
           <Col>
             <h3>학력</h3>
             <ul>
-              <li>숭실대학교 글로벌미디어학부 17.03 - 현재 휴학중</li>
-              <li>한국디지털미디어고등학교 해킹방어과 졸업 14.03 - 17.02</li>
+              <li>
+                숭실대학교 글로벌미디어학부
+                <span className="font-weight-light font-size-1 ml-2">
+                  17.03 - 현재 휴학중
+                </span>
+              </li>
+              <li>
+                한국디지털미디어고등학교 해킹방어과 졸업
+                <span className="font-weight-light font-size-1 ml-2">
+                  14.03 - 17.02
+                </span>
+              </li>
             </ul>
           </Col>
         </Row>

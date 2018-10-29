@@ -1,193 +1,192 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { NamespacesConsumer } from 'react-i18next';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
-const IndexPage = () => {
-  return (
-    <Layout>
-      <Container className="my-5" style={{ maxWidth: 768 }}>
-        <Row className="mb-4">
-          <Col>
-            <h1>강희룡</h1>
-            <p className="lead">
-              파트타임이나 인턴 기회를 찾고 있는 그로스 마인드셋을 지닌
-              다재다능한 웹 개발자입니다. 새로운 기술을 배우는 것을 좋아하고
-              스타트업에 관심이 많습니다.
-            </p>
-          </Col>
-        </Row>
-        <Row className="mb-4">
-          <Col>
-            <h3>연락처</h3>
-            <ul class="list-unstyled">
-              <li className="mb-3">
-                <FontAwesomeIcon
-                  icon="envelope"
-                  size="lg"
-                  fixedWidth
-                  className="mr-3"
-                />
-                <a href="mailto:hi@heeryongkang.me">hi@heeryongkang.me</a>
-              </li>
-              <li className="mb-3">
-                <FontAwesomeIcon
-                  icon={['fab', 'github']}
-                  size="lg"
-                  fixedWidth
-                  className="mr-3"
-                />
-                <a href="https://github.com/drakang4" target="_blank">
-                  github.com/drakang4
-                </a>
-              </li>
-              <li className="mb-3">
-                <FontAwesomeIcon
-                  icon={['fab', 'linkedin']}
-                  size="lg"
-                  fixedWidth
-                  className="mr-3"
-                />
-                <a href="https://www.linkedin.com/in/drakang4" target="_blank">
-                  linkedin.com/in/drakang4
-                </a>
-              </li>
-            </ul>
-          </Col>
-        </Row>
-        <Row className="mb-4">
-          <Col>
-            <h3>테크 스택</h3>
-            <Row>
-              <Col>
-                <h5 className="mb-1">자바스크립트 기술</h5>
-                <p>
-                  ECMAScript 2018, TypeScript, React, Electron, GatsbyJS,
-                  Express
-                </p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h5 className="mb-1">백엔드 기술</h5>
-                <p>AWS, Go, GraphQL, MySQL. MongoDB</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h5 className="mb-1">개발 도구</h5>
-                <p>Git, CI/CD, Docker</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="mb-4">
-          <Col>
-            <h3>이력</h3>
-            <Row>
-              <Col>
-                <h5 className="mb-0 d-inline-block">눔코리아</h5>
-                <span className="font-weight-light font-size-1 ml-2">
-                  2017.11 - 2018.02
-                </span>
-                <p>그로스 엔지니어 인턴</p>
-                <ul>
-                  <li>
-                    구매 전환율 상승을 위해 MixPanel Funnel 데이터를 기반으로
-                    A/B 테스트 설계 및 실행
-                  </li>
-                  <li>GatsbyJS를 이용해 실험 페이지 및 프로모션 페이지 제작</li>
-                </ul>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="mb-4">
-          <Col>
-            <h3>사이드 프로젝트</h3>
-            <Row>
-              <Col>
-                <h5 className="mb-1 d-inline-block">
-                  Jamak: 크로스 플랫폼 자막 파일 에디터
-                  <a href="https://github.com/drakang4/jamak" target="_blank">
-                    <FontAwesomeIcon
-                      icon="external-link-alt"
-                      size="sm"
-                      className="ml-2 d-print-none"
-                    />
-                  </a>
-                </h5>
-
-                <span className="font-weight-light font-size-1 ml-2">
-                  In Progress
-                </span>
-                <ul>
-                  <li>Electron IPC를 활용해 메인 프로세스와 렌더러 프로세스</li>
-                  <li>커뮤니케이션 Redux 기반 상태 관리</li>
-                  <li>
-                    WebAudio API와 Konva를 사용하여 Canvas에 오디오 데이터
-                    시각화
-                  </li>
-                </ul>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h5 className="mb-1 d-inline-block">
-                  GFCalendar: 아이돌 스케줄, 콘텐츠 제공 웹 앱
+const IndexPage = () => (
+  <NamespacesConsumer>
+    {t => (
+      <Layout>
+        <Container className="my-5" style={{ maxWidth: 768 }}>
+          <Row className="mb-4">
+            <Col>
+              <h1>{t('resume:name')}</h1>
+              <p className="lead">{t('resume:introduction')}</p>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col>
+              <h3>{t('resume:name')}</h3>
+              <ul className="list-unstyled">
+                <li className="mb-3">
+                  <FontAwesomeIcon
+                    icon="envelope"
+                    size="lg"
+                    fixedWidth
+                    className="mr-3"
+                  />
+                  <a href="mailto:hi@heeryongkang.me">hi@heeryongkang.me</a>
+                </li>
+                <li className="mb-3">
+                  <FontAwesomeIcon
+                    icon={['fab', 'github']}
+                    size="lg"
+                    fixedWidth
+                    className="mr-3"
+                  />
                   <a
-                    href="https://github.com/drakang4/gfcalendar-demo"
+                    href="https://github.com/drakang4"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <FontAwesomeIcon
-                      icon="external-link-alt"
-                      size="sm"
-                      className="ml-2 d-print-none"
-                    />
+                    github.com/drakang4
                   </a>
-                </h5>
-                <span className="font-weight-light font-size-1 ml-2">
-                  2017.03 - 2017.06
-                </span>
-                <ul>
-                  <li>
-                    react-virtualized를 사용하여 많은 데이터를 효과적으로
-                    렌더링할 수 있는 캘린더 컴포넌트 개발
-                  </li>
-                  <li>
-                    Express 기반의 GraphQL 서버를 구성하고 Apollo 클라이언트에
-                    연결해 데이터 fetch
-                  </li>
-                  <li>Redis 서버에 스케줄 및 콘텐츠 데이터 캐싱</li>
-                  <li>Docker와 CircleCI를 사용하여 빌드 및 배포</li>
-                </ul>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <h3>학력</h3>
-            <ul>
-              <li>
-                숭실대학교 글로벌미디어학부
-                <span className="font-weight-light font-size-1 ml-2">
-                  17.03 - 현재 휴학중
-                </span>
-              </li>
-              <li>
-                한국디지털미디어고등학교 해킹방어과 졸업
-                <span className="font-weight-light font-size-1 ml-2">
-                  14.03 - 17.02
-                </span>
-              </li>
-            </ul>
-          </Col>
-        </Row>
+                </li>
+                <li className="mb-3">
+                  <FontAwesomeIcon
+                    icon={['fab', 'linkedin']}
+                    size="lg"
+                    fixedWidth
+                    className="mr-3"
+                  />
+                  <a
+                    href="https://www.linkedin.com/in/drakang4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    linkedin.com/in/drakang4
+                  </a>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col>
+              <h3>{t('resume:tech stacks')}</h3>
+              <Row>
+                <Col>
+                  <h5 className="mb-1">{t('resume:javascript tech')}</h5>
+                  <p>
+                    ECMAScript 2018, TypeScript, React, Electron, GatsbyJS,
+                    Express
+                  </p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <h5 className="mb-1">{t('resume:backend tech')}</h5>
+                  <p>AWS, Go, GraphQL, MySQL. MongoDB</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <h5 className="mb-1">{t('resume:development tools')}</h5>
+                  <p>Git, CI/CD, Docker</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col>
+              <h3>{t('resume:work experiences')}</h3>
+              <Row>
+                <Col>
+                  <h5 className="mb-0 d-inline-block">{t('resume:noom')}</h5>
+                  <span className="font-weight-light font-size-1 ml-2">
+                    2017.11 - 2018.02
+                  </span>
+                  <p>{t('resume:noom title')}</p>
+                  <ul>
+                    <li>{t('resume:noom line 1')}</li>
+                    <li>{t('resume:noom line 2')} </li>
+                  </ul>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col>
+              <h3>{t('resume:side projects')}</h3>
+              <Row>
+                <Col>
+                  <h5 className="mb-1 d-inline-block">
+                    {t('resume:jamak')}
+                    <a
+                      href="https://github.com/drakang4/jamak"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon="external-link-alt"
+                        size="sm"
+                        className="ml-2 d-print-none"
+                      />
+                    </a>
+                  </h5>
 
-        {/* <Row>
+                  <span className="font-weight-light font-size-1 ml-2">
+                    In Progress
+                  </span>
+                  <ul>
+                    <li>{t('resume:jamak line 1')}</li>
+                    <li>{t('resume:jamak line 2')}</li>
+                    <li>{t('resume:jamak line 3')}</li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <h5 className="mb-1 d-inline-block">
+                    {t('resume:gfcalendar')}
+                    <a
+                      href="https://github.com/drakang4/gfcalendar-demo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon="external-link-alt"
+                        size="sm"
+                        className="ml-2 d-print-none"
+                      />
+                    </a>
+                  </h5>
+                  <span className="font-weight-light font-size-1 ml-2">
+                    2017.03 - 2017.06
+                  </span>
+                  <ul>
+                    <li>{t('resume:gfcalendar line 1')}</li>
+                    <li>{t('resume:gfcalendar line 2')}</li>
+                    <li>{t('resume:gfcalendar line 3')}</li>
+                    <li>{t('resume:gfcalendar line 4')}</li>
+                  </ul>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <h3>{t('resume:education')}</h3>
+              <ul>
+                <li>
+                  {t('resume:university')}
+                  <span className="font-weight-light font-size-1 ml-2">
+                    17.03 - {t('resume:univ status')}
+                  </span>
+                </li>
+                <li>
+                  {t('resume:high school')}
+                  <span className="font-weight-light font-size-1 ml-2">
+                    14.03 - 17.02
+                  </span>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+
+          {/* <Row>
           <Col>
             <h3>블로그</h3>
             <PostList />
@@ -196,9 +195,10 @@ const IndexPage = () => {
             </Link>
           </Col>
         </Row> */}
-      </Container>
-    </Layout>
-  );
-};
+        </Container>
+      </Layout>
+    )}
+  </NamespacesConsumer>
+);
 
 export default IndexPage;

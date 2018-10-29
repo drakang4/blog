@@ -11,6 +11,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import i18n from '../i18n/i18n';
 
 class Header extends Component {
   state = {
@@ -19,6 +20,10 @@ class Header extends Component {
 
   handleNavToggle = () => {
     this.setState({ opened: !this.state.opened });
+  };
+
+  handleChangeLanguage = lng => {
+    i18n.changeLanguage(lng);
   };
 
   render() {
@@ -49,6 +54,22 @@ class Header extends Component {
                 </NavItem> */}
               </Nav>
               <Nav className="ml-auto justify-content-right" navbar>
+                <NavItem>
+                  <NavLink
+                    href="#"
+                    onClick={() => this.handleChangeLanguage('en')}
+                  >
+                    Eng
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="#"
+                    onClick={() => this.handleChangeLanguage('ko')}
+                  >
+                    Kor
+                  </NavLink>
+                </NavItem>
                 {/* <NavItem>
                   <NavLink href="https://github.com/drakang4">
                     <FontAwesomeIcon icon={['fab', 'github']} />

@@ -130,6 +130,7 @@ const IndexPage = ({ data }) => {
                           rel="noopener noreferrer"
                         >
                           <FontAwesomeIcon
+                            title="Link to github"
                             icon="external-link-alt"
                             size="sm"
                             className="ml-2 d-print-none"
@@ -157,6 +158,7 @@ const IndexPage = ({ data }) => {
                           rel="noopener noreferrer"
                         >
                           <FontAwesomeIcon
+                            title="Link to github"
                             icon="external-link-alt"
                             size="sm"
                             className="ml-2 d-print-none"

@@ -30,7 +30,7 @@ i18n
 
     // react i18next special options (optional)
     react: {
-      wait: false,
+      wait: true,
       bindI18n: 'languageChanged loaded',
       bindStore: 'added removed',
       nsMode: 'default',

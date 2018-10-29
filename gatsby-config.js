@@ -57,5 +57,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Heeryong Kang',
+        short_name: 'Heeryong',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#339af0',
+        display: 'minimal-ui',
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };

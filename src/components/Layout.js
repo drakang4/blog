@@ -13,6 +13,7 @@ import Footer from './Footer';
 
 import '../styles/main.scss';
 import 'prismjs/themes/prism-tomorrow.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 library.add(faEnvelope, faExternalLinkAlt, faGithub, faLinkedin);
 

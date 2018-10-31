@@ -64,7 +64,7 @@ module.exports = {
         short_name: 'Heeryong',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#339af0',
+        theme_color: '#1864ab',
         display: 'minimal-ui',
       },
     },

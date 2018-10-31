@@ -76,17 +76,16 @@ const IndexPage = ({ data }) => {
                   <h3>{t('resume:tech stacks')}</h3>
                   <Row>
                     <Col>
-                      <h5 className="mb-1">{t('resume:javascript tech')}</h5>
+                      <h5 className="mb-1">{t('resume:frontend tech')}</h5>
                       <p>
-                        ECMAScript 2018, TypeScript, React, Electron, GatsbyJS,
-                        Express
+                        ECMAScript 2018, TypeScript, React, Electron, GatsbyJS
                       </p>
                     </Col>
                   </Row>
                   <Row>
                     <Col>
                       <h5 className="mb-1">{t('resume:backend tech')}</h5>
-                      <p>AWS, Go, GraphQL, MySQL. MongoDB</p>
+                      <p>AWS, Express, Go, GraphQL, MySQL, MongoDB</p>
                     </Col>
                   </Row>
                   <Row>

@@ -23,9 +23,8 @@ const Layout = ({ children }) => (
       <html lang="ko" />
       <title>Heeryong Kang</title>
       <meta name="description" content="Heeryong Kang's blog" />
-      {/* <link rel="icon" sizes="192x192" href="/path/to/icon.png"> */}
-      {/* <link rel="apple-touch-icon" href="/custom-icon.png"> */}
-      {/* <link rel="mask-icon" href="/path/to/icon.svg" color="blue"> */}
+      <link rel="icon" sizes="192x192" href="/favicon.png" />
+      <link rel="apple-touch-icon" href="/favicon.png" />
     </Helmet>
     <Header />
     <main role="main">{children}</main>

@@ -31,7 +31,6 @@ module.exports = {
             options: {
               maxWidth: 960,
               linkImagesToOriginal: false,
-              backgroundColor: 'transparent',
             },
           },
           'gatsby-remark-autolink-headers',

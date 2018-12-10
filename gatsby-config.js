@@ -52,8 +52,7 @@ module.exports = {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-116620737-1',
-        // Puts tracking script in the head instead of the body
-        head: false,
+        optimizeId: 'GTM-NGJMN49',
       },
     },
     'gatsby-plugin-sitemap',

@@ -102,6 +102,18 @@ const IndexPage = ({ data }) => {
                   <Row>
                     <Col>
                       <h5 className="mb-0 d-inline-block">
+                        {t('resume:styleshare')}
+                      </h5>
+                      <span className="font-weight-light font-size-1 ml-2">
+                        2017.11 - 2018.02
+                      </span>
+                      <p>{t('resume:styleshare title')}</p>
+                      <ul />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <h5 className="mb-0 d-inline-block">
                         {t('resume:noom')}
                       </h5>
                       <span className="font-weight-light font-size-1 ml-2">

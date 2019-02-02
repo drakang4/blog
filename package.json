@@ -40,7 +40,7 @@
     "gatsby-source-filesystem": "2.0.12",
     "gatsby-transformer-remark": "2.1.17",
     "gatsby-transformer-sharp": "2.1.9",
-    "i18next": "12.1.0",
+    "i18next": "14.0.1",
     "i18next-browser-languagedetector": "2.2.4",
     "i18next-xhr-backend": "1.5.1",
     "luxon": "1.10.0",

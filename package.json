@@ -43,7 +43,7 @@
     "i18next": "12.1.0",
     "i18next-browser-languagedetector": "2.2.4",
     "i18next-xhr-backend": "1.5.1",
-    "luxon": "1.8.3",
+    "luxon": "1.10.0",
     "netlify-cms": "2.3.1",
     "open-color": "1.6.3",
     "prismjs": "1.15.0",

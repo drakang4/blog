@@ -2,12 +2,16 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { NamespacesConsumer } from 'react-i18next';
 import Helmet from 'react-helmet';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
-const IndexPage = ({ data }) => {
+type Props = {
+  data: any;
+};
+
+const IndexPage: React.FC<Props> = ({ data }) => {
   const {
     site: { siteMetadata },
   } = data;
@@ -105,7 +109,7 @@ const IndexPage = ({ data }) => {
                         {t('resume:styleshare')}
                       </h5>
                       <span className="font-weight-light font-size-1 ml-2">
-                        2017.11 - 2018.02
+                        2018.11 - Present
                       </span>
                       <p>{t('resume:styleshare title')}</p>
                       <ul />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
   <section className="hero is-fullheight">
     <div className="hero-body">
       <div className="container">

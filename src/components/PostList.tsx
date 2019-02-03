@@ -1,11 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { Row, Col, Badge } from 'reactstrap';
+import { Row, Col, Badge } from 'react-bootstrap';
 import { DateTime } from 'luxon';
 
-const PostList = ({ data }) => {
+type Props = {
+  data: any;
+};
+
+const PostList: React.FC<Props> = ({ data }) => {
   const { allMarkdownRemark } = data;
 
   return (
@@ -59,7 +62,7 @@ const PostList = ({ data }) => {
   );
 };
 
-const PostListWithQuery = props => (
+const PostListWithQuery = (props: any) => (
   <StaticQuery
     query={graphql`
       query {
@@ -93,9 +96,5 @@ const PostListWithQuery = props => (
     render={data => <PostList data={data} {...props} />}
   />
 );
-
-PostList.propTypes = {
-  data: PropTypes.object,
-};
 
 export default PostListWithQuery;

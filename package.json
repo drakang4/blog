@@ -12,13 +12,17 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "5.0.13",
     "@fortawesome/fontawesome-svg-core": "1.2.14",
     "@fortawesome/free-solid-svg-icons": "5.7.1",
     "@fortawesome/react-fontawesome": "0.1.4",
+    "@types/i18next-browser-languagedetector": "^2.0.1",
+    "@types/i18next-xhr-backend": "^1.4.1",
+    "@types/react-helmet": "^5.0.8",
     "bootstrap": "4.2.1",
     "disqus-react": "1.0.5",
     "gatsby": "2.0.111",
@@ -31,6 +35,7 @@
     "gatsby-plugin-sass": "2.0.10",
     "gatsby-plugin-sharp": "2.0.20",
     "gatsby-plugin-sitemap": "2.0.5",
+    "gatsby-plugin-typescript": "^2.0.6",
     "gatsby-remark-autolink-headers": "2.0.13",
     "gatsby-remark-copy-linked-files": "2.0.9",
     "gatsby-remark-images": "3.0.3",
@@ -49,10 +54,12 @@
     "prismjs": "1.15.0",
     "prop-types": "15.6.2",
     "react": "16.7.0",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "16.7.0",
     "react-helmet": "5.2.0",
     "react-i18next": "9.0.10",
-    "reactstrap": "7.1.0"
+    "reactstrap": "7.1.0",
+    "tachyons": "^4.11.1"
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
@@ -65,7 +72,9 @@
     "husky": "1.2.1",
     "node-sass": "4.11.0",
     "prettier": "1.16.3",
-    "pretty-quick": "1.10.0"
+    "pretty-quick": "1.10.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1"
   },
   "husky": {
     "hooks": {

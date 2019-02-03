@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -12,13 +11,11 @@ import Header from './Header';
 import Footer from './Footer';
 
 import '../styles/main.scss';
-import 'prismjs/themes/prism-tomorrow.css';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 
 library.add(faEnvelope, faExternalLinkAlt, faGithub, faLinkedin);
 
-const Layout = ({ children }) => (
-  <>
+const Layout: React.FC = ({ children }) => (
+  <div className="sans-serif">
     <Helmet>
       <html lang="ko" />
       <title>Heeryong Kang</title>
@@ -29,11 +26,7 @@ const Layout = ({ children }) => (
     <Header />
     <main role="main">{children}</main>
     <Footer />
-  </>
+  </div>
 );
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: 'https://www.heeryongkang.me',
   },
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {

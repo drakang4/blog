@@ -1,11 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { DiscussionEmbed } from 'disqus-react';
 import { DateTime } from 'luxon';
 
-const Post = ({ data }) => {
+type Props = {
+  data: any;
+};
+
+const Post: React.FC<Props> = ({ data }) => {
   const { markdownRemark, site } = data;
 
   const { frontmatter, excerpt, fields, html, timeToRead } = markdownRemark;
@@ -94,10 +97,6 @@ const Post = ({ data }) => {
       </Container>
     </article>
   );
-};
-
-Post.propTypes = {
-  data: PropTypes.object,
 };
 
 export default Post;

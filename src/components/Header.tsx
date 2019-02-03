@@ -30,14 +30,16 @@ class Header extends Component<{}, State> {
           // light={!scrolled}
           // dark={scrolled}
           // color={scrolled ? 'dark' : 'transparent'}
-          bg="light"
+          bg="transparent"
           expand="md"
+          expanded={opened}
+          onToggle={this.handleNavToggle}
           role="navigation"
         >
           <Navbar.Brand as={Link} to="/">
             Heeryong Kang
           </Navbar.Brand>
-          <Navbar.Toggle onClick={this.handleNavToggle} />
+          <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav>
               <Nav.Item>

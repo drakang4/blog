@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
-import { DiscussionEmbed } from 'disqus-react';
 
 type Props = {
   data: any;
@@ -45,6 +44,16 @@ const Post: React.FC<Props> = ({ data }) => {
         <meta
           name="twitter:image"
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
+        />
+        {/* Utterances Comment System */}
+        <script
+          src="https://utteranc.es/client.js"
+          repo="drakang4/blog"
+          issue-term="pathname"
+          label="Comment"
+          theme="github-light"
+          crossorigin="anonymous"
+          async
         />
       </Helmet>
       <Container>

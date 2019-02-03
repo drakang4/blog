@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Row, Col, Badge } from 'react-bootstrap';
-import { DateTime } from 'luxon';
 
 type Props = {
   data: any;
@@ -31,15 +30,15 @@ const PostList: React.FC<Props> = ({ data }) => {
               <div>
                 <p>{node.excerpt}</p>
                 <div>
-                  {DateTime.fromISO(node.frontmatter.date).toLocaleString({
+                  {new Intl.DateTimeFormat(navigator.language, {
                     year:
-                      DateTime.local().year ===
-                      DateTime.fromISO(node.frontmatter.date).year
+                      new Date(node.frontmatter.date).getFullYear() ===
+                      new Date().getFullYear()
                         ? undefined
                         : 'numeric',
                     month: 'short',
                     day: 'numeric',
-                  })}
+                  }).format(new Date(node.frontmatter.date))}
                 </div>
               </div>
               <div className="tags">

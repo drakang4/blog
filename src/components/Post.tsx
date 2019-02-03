@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
 import { DiscussionEmbed } from 'disqus-react';
-import { DateTime } from 'luxon';
 
 type Props = {
   data: any;
@@ -55,14 +54,14 @@ const Post: React.FC<Props> = ({ data }) => {
               <h1>{title}</h1>
               <div className="metadata">
                 <time dateTime={date}>
-                  {DateTime.fromISO(date).toLocaleString({
+                  {new Intl.DateTimeFormat(navigator.language, {
                     year:
-                      DateTime.local().year === DateTime.fromISO(date).year
+                      new Date(date).getFullYear() === new Date().getFullYear()
                         ? undefined
                         : 'numeric',
                     month: 'short',
                     day: 'numeric',
-                  })}
+                  }).format(new Date(date))}
                 </time>
                 <span> · </span>
                 <span>{timeToRead} 분 분량</span>

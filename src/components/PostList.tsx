@@ -30,7 +30,7 @@ const PostList: React.FC<Props> = ({ data }) => {
               <div>
                 <p>{node.excerpt}</p>
                 <div>
-                  {new Intl.DateTimeFormat(navigator.language, {
+                  {new Intl.DateTimeFormat(navigator && navigator.language, {
                     year:
                       new Date(node.frontmatter.date).getFullYear() ===
                       new Date().getFullYear()

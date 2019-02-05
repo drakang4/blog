@@ -63,7 +63,7 @@ const Post: React.FC<Props> = ({ data }) => {
               <h1>{title}</h1>
               <div className="metadata">
                 <time dateTime={date}>
-                  {new Intl.DateTimeFormat(navigator.language, {
+                  {new Intl.DateTimeFormat(navigator && navigator.language, {
                     year:
                       new Date(date).getFullYear() === new Date().getFullYear()
                         ? undefined

@@ -10,6 +10,9 @@ type Props = {
 const PostList: React.FC<Props> = ({ data }) => {
   const { allMarkdownRemark } = data;
 
+  const language =
+    typeof window !== 'undefined' ? window.navigator.language : 'en';
+
   return (
     <Row>
       <Col>
@@ -30,7 +33,7 @@ const PostList: React.FC<Props> = ({ data }) => {
               <div>
                 <p>{node.excerpt}</p>
                 <div>
-                  {new Intl.DateTimeFormat(navigator && navigator.language, {
+                  {new Intl.DateTimeFormat(language, {
                     year:
                       new Date(node.frontmatter.date).getFullYear() ===
                       new Date().getFullYear()

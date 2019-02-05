@@ -15,6 +15,9 @@ const Post: React.FC<Props> = ({ data }) => {
   const { siteMetadata } = site;
   const { siteUrl } = siteMetadata;
 
+  const language =
+    typeof window !== 'undefined' ? window.navigator.language : 'en';
+
   return (
     <article className="my-3">
       <Helmet>
@@ -45,16 +48,6 @@ const Post: React.FC<Props> = ({ data }) => {
           name="twitter:image"
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
-        {/* Utterances Comment System */}
-        <script
-          src="https://utteranc.es/client.js"
-          repo="drakang4/blog"
-          issue-term="pathname"
-          label="Comment"
-          theme="github-light"
-          crossorigin="anonymous"
-          async
-        />
       </Helmet>
       <Container>
         <header>
@@ -63,7 +56,7 @@ const Post: React.FC<Props> = ({ data }) => {
               <h1>{title}</h1>
               <div className="metadata">
                 <time dateTime={date}>
-                  {new Intl.DateTimeFormat(navigator && navigator.language, {
+                  {new Intl.DateTimeFormat(language, {
                     year:
                       new Date(date).getFullYear() === new Date().getFullYear()
                         ? undefined
@@ -86,20 +79,6 @@ const Post: React.FC<Props> = ({ data }) => {
               className="mx-auto"
               dangerouslySetInnerHTML={{ __html: html }}
             />
-          </Row>
-        </section>
-        <section>
-          <Row>
-            <Col md={10} lg={8} className="mx-auto">
-              <DiscussionEmbed
-                shortname="heeryongkang"
-                config={{
-                  url: `${siteUrl}${fields.slug}`,
-                  identifier: fields.slug,
-                  title,
-                }}
-              />
-            </Col>
           </Row>
         </section>
       </Container>

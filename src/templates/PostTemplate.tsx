@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Post from '../components/Post';
 import Layout from '../components/Layout';
+import Helmet from 'react-helmet';
 
 type Props = {
   data: Object;
@@ -9,7 +10,20 @@ type Props = {
 
 const PostTemplate: React.FC<Props> = ({ data }) => (
   <Layout>
-    <Post data={data} />;
+    <Helmet>
+      {/* Utterances Comment System */}
+      <script
+        src="https://utteranc.es/client.js"
+        repo="drakang4/blog"
+        issue-term="pathname"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async
+      />
+    </Helmet>
+    <Post data={data} />
+    <div className="utterances" />
   </Layout>
 );
 

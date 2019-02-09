@@ -47,7 +47,7 @@
     "gatsby-transformer-sharp": "2.1.13",
     "i18next": "14.0.1",
     "i18next-browser-languagedetector": "2.2.4",
-    "i18next-xhr-backend": "1.5.1",
+    "i18next-xhr-backend": "2.0.0",
     "netlify-cms": "2.3.3",
     "open-color": "1.6.3",
     "prismjs": "1.15.0",

@@ -48,7 +48,7 @@
     "gatsby-transformer-remark": "2.2.5",
     "gatsby-transformer-sharp": "2.1.13",
     "i18next": "14.1.1",
-    "i18next-browser-languagedetector": "3.0.0",
+    "i18next-browser-languagedetector": "3.0.1",
     "i18next-xhr-backend": "2.0.0",
     "netlify-cms": "2.4.2",
     "open-color": "1.6.3",

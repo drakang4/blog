@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { Row, Col, Badge } from 'react-bootstrap';
+import { Box, Card, Text, Heading, Flex } from 'rebass';
+import { formatDate } from '../utils/i18n';
 
 type Props = {
   data: any;
@@ -10,57 +11,39 @@ type Props = {
 const PostList: React.FC<Props> = ({ data }) => {
   const { allMarkdownRemark } = data;
 
-  const language =
-    typeof window !== 'undefined' ? window.navigator.language : 'en';
-
   return (
-    <Row>
-      <Col>
-        {allMarkdownRemark.edges.map(({ node }, index, array) => (
-          <Row
-            key={node.frontmatter.title}
-            className={`py-2 mb-4 ${index !== array.length - 1 &&
-              'border-bottom'}`}
-          >
-            <Col>
+    <Box>
+      {allMarkdownRemark.edges.map(({ node }) => (
+        <Card key={node.frontmatter.title} py={2} mb={4}>
+          <Flex flexDirection={['column', 'row']}>
+            <Box flex={1}>
               <Link to={node.fields.slug}>
-                <p className="mb-1">
-                  <big>
-                    <b>{node.frontmatter.title}</b>
-                  </big>
-                </p>
+                <Heading as="h2" fontSize={5} fontWeight={700} mb={3}>
+                  {node.frontmatter.title}
+                </Heading>
               </Link>
-              <div>
-                <p>{node.excerpt}</p>
-                <div>
-                  {new Intl.DateTimeFormat(language, {
-                    year:
-                      new Date(node.frontmatter.date).getFullYear() ===
-                      new Date().getFullYear()
-                        ? undefined
-                        : 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  }).format(new Date(node.frontmatter.date))}
-                </div>
-              </div>
-              <div className="tags">
-                {node.frontmatter.tags.map(tag => (
-                  // <Link key={tag} to={`/tags/${tag}`}>
-                  <Badge key={tag} color="light" className="mr-1">
-                    {tag}
-                  </Badge>
-                  // </Link>
-                ))}
-              </div>
-            </Col>
-            <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
+              <Box>
+                <Text mb={3}>{node.excerpt}</Text>
+                <Text>{formatDate(node.frontmatter.date)}</Text>
+              </Box>
+              {/* <div className="tags">
+              {node.frontmatter.tags.map(tag => (
+                // <Link key={tag} to={`/tags/${tag}`}>
+                <Badge key={tag} color="light" className="mr-1">
+                  {tag}
+                </Badge>
+                // </Link>
+              ))}
+            </div> */}
+            </Box>
+            <Link to={node.fields.slug}>
               <Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
-            </Col>
-          </Row>
-        ))}
-      </Col>
-    </Row>
+            </Link>
+            <Box />
+          </Flex>
+        </Card>
+      ))}
+    </Box>
   );
 };
 
@@ -83,7 +66,7 @@ const PostListWithQuery = (props: any) => (
                 date
                 thumbnail {
                   childImageSharp {
-                    fixed(width: 125, height: 125, quality: 80) {
+                    fixed(width: 200, height: 200, quality: 80) {
                       ...GatsbyImageSharpFixed_withWebp
                     }
                   }

@@ -1,27 +1,22 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Box, Link, Text } from 'rebass';
 
-const Footer = () => {
-  return (
-    <footer>
-      <Container className="py-3 d-print-none">
-        <Row>
-          <Col className="text-center text-muted">
-            Built with ❤️ using <a href="https://reactjs.org/">React</a> and{' '}
-            <a href="https://www.gatsbyjs.org/">Gatsby</a> by Heeryong Kang
-          </Col>
-        </Row>
-      </Container>
-      <Container className="py-3 d-none d-print-block">
-        <Row>
-          <Col className="text-center text-muted">
-            This résumé is also hosted on{' '}
-            <a href="https://www.heeryongkang.me/">heeryongkang.me</a>
-          </Col>
-        </Row>
-      </Container>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer className="no-print">
+    <Box px={3} py={4}>
+      <Text textAlign="center">
+        Built with ❤️ using{' '}
+        <Link href="https://reactjs.org/" css={{ textDecoration: 'none' }}>
+          React
+        </Link>{' '}
+        and{' '}
+        <Link href="https://www.gatsbyjs.org/" css={{ textDecoration: 'none' }}>
+          Gatsby
+        </Link>{' '}
+        by Heeryong Kang
+      </Text>
+    </Box>
+  </footer>
+);
 
 export default Footer;

@@ -10,12 +10,12 @@ import { faGithub, faLinkedin } from '@fortawesome/fontawesome-free-brands';
 import Header from './Header';
 import Footer from './Footer';
 
-import '../styles/main.scss';
+import '../styles/main.css';
 
 library.add(faEnvelope, faExternalLinkAlt, faGithub, faLinkedin);
 
 const Layout: React.FC = ({ children }) => (
-  <div className="sans-serif">
+  <div>
     <Helmet>
       <html lang="ko" />
       <title>Heeryong Kang</title>

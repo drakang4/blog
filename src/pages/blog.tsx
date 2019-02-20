@@ -1,17 +1,17 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Box, Heading } from 'rebass';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
 const BlogPage = () => {
   return (
     <Layout>
-      <Container className="mt-3 mb-5">
-        <Col md={10} lg={8} className="mx-auto px-0">
-          <h1>포스트</h1>
-          <PostList />
-        </Col>
-      </Container>
+      <Box mx="auto" my={4} px={3} css={{ maxWidth: '768px' }}>
+        <Heading as="h1" fontSize={5} mb={4}>
+          포스트
+        </Heading>
+        <PostList />
+      </Box>
     </Layout>
   );
 };

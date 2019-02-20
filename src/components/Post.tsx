@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Box, Text, Heading } from 'rebass';
+import { formatDate } from '../utils/i18n';
 
 type Props = {
   data: any;
@@ -15,11 +16,8 @@ const Post: React.FC<Props> = ({ data }) => {
   const { siteMetadata } = site;
   const { siteUrl } = siteMetadata;
 
-  const language =
-    typeof window !== 'undefined' ? window.navigator.language : 'en';
-
   return (
-    <article className="my-3">
+    <Box as="article" mx="auto" my={4} css={{ maxWidth: '768px' }}>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={excerpt} />
@@ -49,40 +47,28 @@ const Post: React.FC<Props> = ({ data }) => {
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
       </Helmet>
-      <Container>
-        <header>
-          <Row>
-            <Col md={10} lg={8} className="mx-auto">
-              <h1>{title}</h1>
-              <div className="metadata">
-                <time dateTime={date}>
-                  {new Intl.DateTimeFormat(language, {
-                    year:
-                      new Date(date).getFullYear() === new Date().getFullYear()
-                        ? undefined
-                        : 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  }).format(new Date(date))}
-                </time>
-                <span> · </span>
-                <span>{timeToRead} 분 분량</span>
-              </div>
-            </Col>
-          </Row>
-        </header>
-        <section>
-          <Row className="my-3">
-            <Col
-              md={10}
-              lg={8}
-              className="mx-auto"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </Row>
-        </section>
-      </Container>
-    </article>
+      <Box px={3}>
+        <Box as="section" mb={[3, 5]}>
+          <Heading as="h1" mb={2} fontSize={5}>
+            {title}
+          </Heading>
+          <Box>
+            <Text as="span" fontWeight={300}>
+              {formatDate(date)}
+            </Text>
+            <Text as="span" fontWeight={300}>
+              {' · '}
+            </Text>
+            <Text as="span" fontWeight={300}>
+              {timeToRead} 분 분량
+            </Text>
+          </Box>
+        </Box>
+        <Box as="section">
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

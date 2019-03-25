@@ -52,7 +52,7 @@
     "i18next-xhr-backend": "2.0.0",
     "netlify-cms": "2.4.2",
     "open-color": "1.6.3",
-    "prismjs": "1.15.0",
+    "prismjs": "1.16.0",
     "react": "16.8.1",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "16.8.1",

@@ -6,7 +6,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -49,7 +48,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-WGKT7SQ',
+      },
+
       options: {
         trackingId: 'UA-116620737-1',
         optimizeId: 'GTM-NGJMN49',
@@ -60,10 +63,10 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Heeryong Kang',
-        short_name: 'Heeryong',
+        short_name: 'Heeryong Kang',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#1864ab',
+        theme_color: '#333333',
         display: 'minimal-ui',
         icon: 'static/favicon.png',
       },

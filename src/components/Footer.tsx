@@ -1,21 +1,18 @@
 import React from 'react';
-import { Box, Link, Text } from 'rebass';
 
 const Footer = () => (
   <footer className="no-print">
-    <Box px={3} py={4}>
-      <Text textAlign="center">
-        Built with ❤️ using{' '}
-        <Link href="https://reactjs.org/" css={{ textDecoration: 'none' }}>
-          React
-        </Link>{' '}
-        and{' '}
-        <Link href="https://www.gatsbyjs.org/" css={{ textDecoration: 'none' }}>
-          Gatsby
-        </Link>{' '}
-        by Heeryong Kang
-      </Text>
-    </Box>
+    <div className="tc ph3 pv4 gray">
+      Built with ❤️ using{' '}
+      <a href="https://reactjs.org/" className="link blue">
+        React
+      </a>{' '}
+      and{' '}
+      <a href="https://www.gatsbyjs.org/" className="link blue">
+        Gatsby
+      </a>{' '}
+      by Heeryong Kang
+    </div>
   </footer>
 );
 

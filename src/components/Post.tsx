@@ -1,10 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Box, Text, Heading } from 'rebass';
 import { formatDate } from '../utils/i18n';
+import { MarkdownRemark, SiteMetaData } from '../types';
 
 type Props = {
-  data: any;
+  data: {
+    markdownRemark: MarkdownRemark;
+    site: {
+      siteMetadata: SiteMetaData;
+    };
+  };
 };
 
 const Post: React.FC<Props> = ({ data }) => {
@@ -17,7 +22,7 @@ const Post: React.FC<Props> = ({ data }) => {
   const { siteUrl } = siteMetadata;
 
   return (
-    <Box as="article" mx="auto" my={4} css={{ maxWidth: '768px' }}>
+    <article className="center mv4 mw7">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={excerpt} />
@@ -47,28 +52,16 @@ const Post: React.FC<Props> = ({ data }) => {
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
       </Helmet>
-      <Box px={3}>
-        <Box as="section" mb={[3, 5]}>
-          <Heading as="h1" mb={2} fontSize={5}>
-            {title}
-          </Heading>
-          <Box>
-            <Text as="span" fontWeight={300}>
-              {formatDate(date)}
-            </Text>
-            <Text as="span" fontWeight={300}>
-              {' · '}
-            </Text>
-            <Text as="span" fontWeight={300}>
-              {timeToRead} 분 분량
-            </Text>
-          </Box>
-        </Box>
-        <Box as="section">
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Box>
-      </Box>
-    </Box>
+      <header className="ph3 mb4">
+        <h1 className="mv2 f2 fw7 lh-title dark-gray">{title}</h1>
+        <div className="f6 gray">
+          <span>{formatDate(date)}</span> · <span>{timeToRead}분 분량</span>
+        </div>
+      </header>
+      <section className="ph3 dark-gray">
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </section>
+    </article>
   );
 };
 

@@ -1,19 +1,64 @@
 import React from 'react';
-import { Box, Heading } from 'rebass';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import PostList from '../components/PostList';
+import { MarkdownRemark } from '../types';
+import PostListItem from '../components/PostListItem';
 
-const BlogPage = () => {
+type Props = {
+  data: {
+    allMarkdownRemark: {
+      edges: [
+        {
+          node: MarkdownRemark;
+        }
+      ];
+    };
+  };
+};
+
+const BlogPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <Box mx="auto" my={4} px={3} css={{ maxWidth: '768px' }}>
-        <Heading as="h1" fontSize={5} mb={4}>
-          포스트
-        </Heading>
-        <PostList />
-      </Box>
+      <div className="center mv4 ph3 mw7">
+        <h1 className="f1 mb4 near-black">포스트</h1>
+        <div>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <PostListItem data={node} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      limit: 100
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 100, truncate: true)
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date
+            thumbnail {
+              childImageSharp {
+                fixed(width: 128, height: 128, quality: 80) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+            tags
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default BlogPage;

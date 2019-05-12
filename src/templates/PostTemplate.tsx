@@ -3,16 +3,22 @@ import { graphql } from 'gatsby';
 import Post from '../components/Post';
 import Layout from '../components/Layout';
 import Helmet from 'react-helmet';
+import { SiteMetaData, MarkdownRemark } from '../types';
 
 type Props = {
-  data: Object;
+  data: {
+    site: {
+      siteMetadata: SiteMetaData;
+    };
+    markdownRemark: MarkdownRemark;
+  };
 };
 
 const PostTemplate: React.FC<Props> = ({ data }) => (
   <Layout>
     <Helmet>
       {/* Utterances Comment System */}
-      <script
+      {/* <script
         src="https://utteranc.es/client.js"
         repo="drakang4/blog"
         issue-term="pathname"
@@ -20,7 +26,7 @@ const PostTemplate: React.FC<Props> = ({ data }) => (
         theme="github-light"
         crossorigin="anonymous"
         async
-      />
+      /> */}
     </Helmet>
     <Post data={data} />
     <div className="utterances" />

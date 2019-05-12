@@ -1,23 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
-import { Flex } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const NavLogo = styled(Link)`
-  font-size: 32px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #333;
-`;
 
 const Header: React.FC = () => {
   return (
     <header className="no-print">
       <nav role="navigation">
-        <Flex mx="auto" px={3} py={3}>
-          <NavLogo to="/">Heeryong Kang</NavLogo>
-        </Flex>
+        <div className="center flex pa3">
+          <Link to="/" className="f4 fw7 link dim near-black">
+            Heeryong Kang
+          </Link>
+        </div>
       </nav>
       {/* <Navbar
         // light={!scrolled}

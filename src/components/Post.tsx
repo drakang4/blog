@@ -1,9 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Container, Row, Col } from 'react-bootstrap';
+import { formatDate } from '../utils/i18n';
+import { MarkdownRemark, SiteMetaData } from '../types';
 
 type Props = {
-  data: any;
+  data: {
+    markdownRemark: MarkdownRemark;
+    site: {
+      siteMetadata: SiteMetaData;
+    };
+  };
 };
 
 const Post: React.FC<Props> = ({ data }) => {
@@ -15,11 +21,8 @@ const Post: React.FC<Props> = ({ data }) => {
   const { siteMetadata } = site;
   const { siteUrl } = siteMetadata;
 
-  const language =
-    typeof window !== 'undefined' ? window.navigator.language : 'en';
-
   return (
-    <article className="my-3">
+    <article className="center mv4 mw7">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={excerpt} />
@@ -49,39 +52,15 @@ const Post: React.FC<Props> = ({ data }) => {
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
       </Helmet>
-      <Container>
-        <header>
-          <Row>
-            <Col md={10} lg={8} className="mx-auto">
-              <h1>{title}</h1>
-              <div className="metadata">
-                <time dateTime={date}>
-                  {new Intl.DateTimeFormat(language, {
-                    year:
-                      new Date(date).getFullYear() === new Date().getFullYear()
-                        ? undefined
-                        : 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  }).format(new Date(date))}
-                </time>
-                <span> · </span>
-                <span>{timeToRead} 분 분량</span>
-              </div>
-            </Col>
-          </Row>
-        </header>
-        <section>
-          <Row className="my-3">
-            <Col
-              md={10}
-              lg={8}
-              className="mx-auto"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </Row>
-        </section>
-      </Container>
+      <header className="ph3 mb4">
+        <h1 className="mv2 f2 fw7 lh-title dark-gray">{title}</h1>
+        <div className="f6 gray">
+          <span>{formatDate(date)}</span> · <span>{timeToRead}분 분량</span>
+        </div>
+      </header>
+      <section className="ph3 dark-gray">
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </section>
     </article>
   );
 };

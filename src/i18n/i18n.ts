@@ -1,13 +1,15 @@
 import i18n from 'i18next';
-import XHR from 'i18next-xhr-backend';
+import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import enResume from './en/resume.json';
 import koResume from './ko/resume.json';
 
 i18n
-  .use(XHR)
+  .use(Backend)
   .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: process.env.NODE_ENV === 'development',
@@ -24,14 +26,6 @@ i18n
       ko: {
         resume: koResume,
       },
-    },
-
-    // react i18next special options (optional)
-    react: {
-      wait: false,
-      bindI18n: 'languageChanged loaded',
-      bindStore: 'added removed',
-      nsMode: 'default',
     },
   });
 

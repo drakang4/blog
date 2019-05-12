@@ -60,7 +60,7 @@
     "react-i18next": "9.0.10"
   },
   "devDependencies": {
-    "husky": "1.2.1",
+    "husky": "2.2.0",
     "node-sass": "4.11.0",
     "prettier": "1.16.4",
     "pretty-quick": "1.10.0",

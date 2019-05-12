@@ -52,11 +52,6 @@ module.exports = {
       options: {
         id: 'GTM-WGKT7SQ',
       },
-
-      options: {
-        trackingId: 'UA-116620737-1',
-        optimizeId: 'GTM-NGJMN49',
-      },
     },
     'gatsby-plugin-sitemap',
     {

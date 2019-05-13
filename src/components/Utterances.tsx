@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Utterances = () => {
+  const wrapper = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const utterances = document.createElement('script');
     const utterancesConfig: { [key: string]: any } = {
@@ -16,9 +18,11 @@ const Utterances = () => {
       utterances.setAttribute(configKey, utterancesConfig[configKey]);
     });
 
-    document.body.appendChild(utterances);
+    if (wrapper.current) {
+      wrapper.current.appendChild(utterances);
+    }
   }, []);
-  return <div className="utterances" />;
+  return <div ref={wrapper} className="utterances-wrapper" />;
 };
 
 export default Utterances;

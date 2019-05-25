@@ -1,16 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import { MarkdownRemark, SiteMetaData } from '../types';
+import { MarkdownRemark } from '../types';
 import PostListItem from '../components/PostListItem';
 import SEO from '../components/SEO';
-import Helmet from 'react-helmet';
+import BreadCrumList from '../components/BreadCrumList';
 
 type Props = {
   data: {
-    site: {
-      siteMetadata: SiteMetaData;
-    };
     allMarkdownRemark: {
       edges: [
         {
@@ -22,30 +19,10 @@ type Props = {
 };
 
 const BlogPage: React.FC<Props> = ({ data }) => {
-  const schemaOrgJSONLD = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: '블로그',
-          item: '/blog',
-        },
-      ],
-    },
-  ];
-
   return (
     <Layout>
       <SEO title="포스트" pathname="/blog" />
-      <Helmet>
-        {/* Schema.org tags */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
-      </Helmet>
+      <BreadCrumList data={[{ name: '블로그', pathname: '/blog' }]} />
       <div className="center ph3 mw7">
         <h1 className="f1 mv4 near-black">포스트</h1>
         <div>
@@ -60,13 +37,6 @@ const BlogPage: React.FC<Props> = ({ data }) => {
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
     allMarkdownRemark(
       limit: 100
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }

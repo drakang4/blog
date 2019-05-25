@@ -6,6 +6,7 @@ import { MarkdownRemark } from '../types';
 import Utterances from '../components/Utterances';
 import Helmet from 'react-helmet';
 import SEO from '../components/SEO';
+import BreadCrumList from '../components/BreadCrumList';
 
 type Props = {
   data: {
@@ -21,43 +22,23 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
     frontmatter: { title, thumbnail, date },
   } = markdownRemark;
 
-  const schemaOrgJSONLD = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'NewsArticle',
-      headline: title,
-      image: [thumbnail.childImageSharp.fluid.src],
-      datePublished: date,
-      dateModified: date,
-      author: {
-        '@type': 'Person',
-        name: '강희룡',
-      },
-      publisher: {
-        '@type': 'Person',
-        name: '강희룡',
-      },
-      description: excerpt,
+  const schemaOrgJSONLD = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: title,
+    image: [thumbnail.childImageSharp.fluid.src],
+    datePublished: date,
+    dateModified: date,
+    author: {
+      '@type': 'Person',
+      name: '강희룡',
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: '블로그',
-          item: '/blog',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: title,
-          item: `/blog/${fields.slug}`,
-        },
-      ],
+    publisher: {
+      '@type': 'Person',
+      name: '강희룡',
     },
-  ];
+    description: excerpt,
+  };
 
   return (
     <Layout>
@@ -78,6 +59,12 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
       </Helmet>
+      <BreadCrumList
+        data={[
+          { name: '블로그', pathname: '/blog' },
+          { name: title, pathname: fields.slug },
+        ]}
+      />
       <div className="center mv4 mw7 ph3 ph0-l">
         <Post data={markdownRemark} />
       </div>

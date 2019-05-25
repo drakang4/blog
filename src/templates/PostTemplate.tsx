@@ -57,7 +57,9 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
           content={`${siteUrl}${thumbnail.childImageSharp.fluid.src}`}
         />
       </Helmet>
-      <Post data={markdownRemark} />
+      <div className="center mv4 mw7 ph3 ph0-l">
+        <Post data={markdownRemark} />
+      </div>
       <Utterances />
     </Layout>
   );

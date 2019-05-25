@@ -22,7 +22,9 @@ const Utterances = () => {
       wrapper.current.appendChild(utterances);
     }
   }, []);
-  return <div ref={wrapper} className="utterances-wrapper" />;
+  return (
+    <div ref={wrapper} className="utterances-wrapper center mw7 ph3 ph0-l " />
+  );
 };
 
 export default Utterances;

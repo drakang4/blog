@@ -18,12 +18,12 @@ type Props = {
 const PostTemplate: React.FC<Props> = ({ data }) => {
   const { site, markdownRemark } = data;
   const {
-    siteMetadata: { title, siteUrl, description, author },
+    siteMetadata: { siteUrl },
   } = site;
   const {
     excerpt,
     fields,
-    frontmatter: { thumbnail, date },
+    frontmatter: { title, thumbnail, date },
   } = markdownRemark;
 
   return (

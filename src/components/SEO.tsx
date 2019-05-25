@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import urlJoin from 'url-join';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 type Props = {
@@ -13,13 +14,11 @@ const SEO: React.FC<Props> = ({ title, description, pathname, image }) => {
   // Use siteMetadata for default
   const siteMetadata = useSiteMetadata();
 
-  const url = pathname
-    ? new URL(pathname, siteMetadata.siteUrl).toString()
-    : siteMetadata.siteUrl;
-  const thumbnail = new URL(
-    image ? image : siteMetadata.image,
+  const url = urlJoin(siteMetadata.siteUrl, pathname || '');
+  const thumbnail = urlJoin(
     siteMetadata.siteUrl,
-  ).toString();
+    image ? image : siteMetadata.image,
+  );
 
   const schemaOrgJSONLD = {
     '@context': 'http://schema.org',

@@ -76,8 +76,8 @@
   "contacts": [
     {
       "network": "Email",
-      "icon": "envelope",
-      "url": "mailto:hi@heeryongkang.me"
+      "icon": "email",
+      "url": "hi@heeryongkang.me"
     },
     {
       "network": "GitHub",

@@ -1,11 +1,9 @@
 export interface SiteMetaData {
   title: string;
   description: string;
-  author: {
-    name: string;
-    url: string;
-  };
   siteUrl: string;
+  logo: string;
+  image: string;
 }
 
 export interface MarkdownRemark {

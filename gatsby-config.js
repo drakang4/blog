@@ -3,6 +3,8 @@ module.exports = {
     title: 'Heeryong Kang Blog',
     description: `Heeryong Kang's blog.`,
     siteUrl: 'https://www.heeryongkang.me',
+    logo: '/favicon.png',
+    image: '/favicon.png',
   },
   plugins: [
     'gatsby-plugin-typescript',

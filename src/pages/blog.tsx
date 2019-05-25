@@ -1,11 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import { MarkdownRemark } from '../types';
+import { MarkdownRemark, SiteMetaData } from '../types';
 import PostListItem from '../components/PostListItem';
+import SEO from '../components/SEO';
 
 type Props = {
   data: {
+    site: {
+      siteMetadata: SiteMetaData;
+    };
     allMarkdownRemark: {
       edges: [
         {
@@ -19,6 +23,7 @@ type Props = {
 const BlogPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
+      <SEO title="포스트" pathname="/blog" />
       <div className="center ph3 mw7">
         <h1 className="f1 mv4 near-black">포스트</h1>
         <div>
@@ -33,6 +38,13 @@ const BlogPage: React.FC<Props> = ({ data }) => {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     allMarkdownRemark(
       limit: 100
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }

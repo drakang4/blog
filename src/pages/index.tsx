@@ -1,40 +1,26 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
-import { SiteMetaData, Resume as ResumeData } from '../types';
+import { Resume as ResumeData } from '../types';
 import Resume from '../components/Resume';
+import SEO from '../components/SEO';
+import Helmet from 'react-helmet';
 
 type Props = {
   data: {
-    site: {
-      siteMetadata: SiteMetaData;
-    };
     resumeJson: ResumeData;
   };
 };
 
 const IndexPage: React.FC<Props> = ({ data }) => {
-  const {
-    site: { siteMetadata },
-    resumeJson,
-  } = data;
-  const { siteUrl } = siteMetadata;
+  const { resumeJson } = data;
 
   return (
     <Layout>
+      <SEO title={resumeJson.name} description={resumeJson.summary} />
       <Helmet>
         <html lang={resumeJson.lang} />
-        <title>강희룡</title>
-        <meta name="description" content={resumeJson.summary} />
-        <link rel="canonical" href={siteUrl} />
-        <meta property="fb:app_id" content="191342008318335" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={siteUrl} />
-        <meta property="og:title" content="강희룡" />
-        <meta property="og:description" content={resumeJson.summary} />
       </Helmet>
-
       <div className="center mw7 ph3 mv4 mv6-ns dark-gray">
         <Resume data={resumeJson} />
       </div>
@@ -46,12 +32,6 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        siteUrl
-      }
-    }
     resumeJson {
       lang
       name

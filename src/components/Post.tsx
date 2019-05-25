@@ -1,7 +1,6 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { formatDate } from '../utils/i18n';
-import { MarkdownRemark, SiteMetaData } from '../types';
+import { MarkdownRemark } from '../types';
 
 type Props = {
   data: MarkdownRemark;

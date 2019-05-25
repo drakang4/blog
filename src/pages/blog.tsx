@@ -35,6 +35,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       limit: 100
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

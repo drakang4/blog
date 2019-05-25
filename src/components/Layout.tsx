@@ -1,18 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faEnvelope,
-  faExternalLinkAlt,
-} from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/fontawesome-free-brands';
 
 import Header from './Header';
 import Footer from './Footer';
 
 import '../styles/main.css';
-
-library.add(faEnvelope, faExternalLinkAlt, faGithub, faLinkedin);
 
 const Layout: React.FC = ({ children }) => (
   <div>

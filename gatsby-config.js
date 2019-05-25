@@ -49,6 +49,7 @@ module.exports = {
     },
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-svg-sprite',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

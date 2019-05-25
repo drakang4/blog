@@ -109,8 +109,7 @@
       "endDate": "2019-05-25T06:11:34.835Z",
       "highlights": [
         "react-virtualized를 사용하여 많은 데이터를 효과적으로 렌더링할 수 있는 캘린더 컴포넌트 개발",
-        "Express 기반",
-        "의 GraphQL 서버를 구성하고 Apollo 클라이언트에 연결해 데이터 fetch",
+        "Express 기반의 GraphQL 서버를 구성하고 Apollo 클라이언트에 연결해 데이터 fetch",
         "Redis 서버에 스케줄 및 콘텐츠 데이터 캐싱",
         "Docker와 CircleCI를 사용한 빌드 및 배포"
       ]

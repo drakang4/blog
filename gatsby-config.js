@@ -20,6 +20,13 @@ module.exports = {
         name: 'posts',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/resume`,
+        name: 'resume',
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
@@ -40,6 +47,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',

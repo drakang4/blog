@@ -8,12 +8,10 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const PostTemplate = path.resolve(`src/templates/PostTemplate.tsx`);
-
-  return graphql`
+  const { data, errors } = await graphql(`
     {
       allMarkdownRemark(
         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
@@ -28,27 +26,27 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `.then(result => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
-      throw result.errors;
-    }
+  `);
 
-    result.data.allMarkdownRemark.edges.forEach(edge => {
-      createPage({
-        path: edge.node.fields.slug,
-        component: PostTemplate,
+  if (errors) {
+    errors.forEach(e => console.error(e.toString()));
+    throw result.errors;
+  }
 
-        // additional data can be passed via context
-        context: {
-          id: edge.node.id,
-        },
-      });
+  data.allMarkdownRemark.edges.forEach(edge => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: path.resolve(`src/templates/PostTemplate.tsx`),
+
+      // additional data can be passed via context
+      context: {
+        id: edge.node.id,
+      },
     });
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {

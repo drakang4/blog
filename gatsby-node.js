@@ -13,9 +13,11 @@ exports.createPages = ({ actions, graphql }) => {
 
   const PostTemplate = path.resolve(`src/templates/PostTemplate.tsx`);
 
-  return graphql(`
+  return graphql`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
         edges {
           node {
             id
@@ -26,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `.then(result => {
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()));
       throw result.errors;

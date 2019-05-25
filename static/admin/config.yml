@@ -8,14 +8,86 @@ media_folder: static/images
 public_folder: /images
 
 collections:
-  - name: 'post'
-    label: 'Post'
-    folder: 'src/posts'
+  - label: Resume
+    name: resume
+    format: json
+    files:
+      - file: src/resume/ko.json
+        label: Korean
+        name: ko
+        fields:
+          - {
+              label: Template Key,
+              name: templateKey,
+              widget: hidden,
+              default: resume,
+            }
+          - { label: Language, name: lang, widget: string }
+          - { label: Name, name: name, widget: string }
+          - { label: Summary, name: summary, widget: string }
+          - {
+              label: Contats,
+              name: contacts,
+              widget: list,
+              fields:
+                [
+                  { label: Network, name: network, widget: string },
+                  { label: Icon, name: icon, widget: string },
+                  { label: URL, name: url, widget: string },
+                ],
+            }
+          - {
+              label: Skills,
+              name: skills,
+              widget: list,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  { label: Keywords, name: keywords, widget: list },
+                ],
+            }
+          - {
+              label: Works,
+              name: works,
+              widget: list,
+              fields:
+                [
+                  { label: Company, name: company, widget: string },
+                  { label: Role, name: role, widget: string },
+                  { label: Webstie, name: website, widget: string },
+                  { label: Start Date, name: startDate, widget: date },
+                  { label: End Date, name: endDate, widget: date },
+                  { label: Summary, name: summary, widget: string },
+                  { label: Highlights, name: highlights, widget: list },
+                ],
+            }
+          - {
+              label: Educations,
+              name: educations,
+              widget: list,
+              fields:
+                [
+                  { label: School, name: school, widget: string },
+                  { label: Faculty, name: faculty, widget: string },
+                  { label: Study Type, name: studyType, widget: string },
+                  { label: Start Date, name: startDate, widget: date },
+                  { label: End Date, name: endDate, widget: date },
+                ],
+            }
+  - label: Post
+    name: post
+    folder: src/posts
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Thumbnail Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - {
+          label: Template Key,
+          name: templateKey,
+          widget: hidden,
+          default: blog-post,
+        }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Thumbnail Image, name: thumbnail, widget: image }
+      - { label: Body, name: body, widget: markdown }
+      - { label: Tags, name: tags, widget: list }

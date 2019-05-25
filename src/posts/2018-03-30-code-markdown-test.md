@@ -1,4 +1,5 @@
 ---
+templateKey: blog-post
 title: Code markdown test
 date: '2018-03-30T15:51:01+09:00'
 thumbnail: /images/p1070062.jpg

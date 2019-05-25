@@ -62,6 +62,19 @@ collections:
                 ],
             }
           - {
+              label: Projects,
+              name: projects,
+              widget: list,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  { label: URL, name: url, widget: string },
+                  { label: Start Date, name: startDate, widget: date },
+                  { label: End Date, name: endDate, widget: date },
+                  { label: Hightlights, name: highlights, widget: list },
+                ],
+            }
+          - {
               label: Educations,
               name: educations,
               widget: list,

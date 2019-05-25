@@ -21,23 +21,43 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
     frontmatter: { title, thumbnail, date },
   } = markdownRemark;
 
-  const schemaOrgJSONLD = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: title,
-    image: [thumbnail.childImageSharp.fluid.src],
-    datePublished: date,
-    dateModified: date,
-    author: {
-      '@type': 'Person',
-      name: '강희룡',
+  const schemaOrgJSONLD = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: title,
+      image: [thumbnail.childImageSharp.fluid.src],
+      datePublished: date,
+      dateModified: date,
+      author: {
+        '@type': 'Person',
+        name: '강희룡',
+      },
+      publisher: {
+        '@type': 'Person',
+        name: '강희룡',
+      },
+      description: excerpt,
     },
-    publisher: {
-      '@type': 'Person',
-      name: '강희룡',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: '블로그',
+          item: '/blog',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: title,
+          item: `/blog/${fields.slug}`,
+        },
+      ],
     },
-    description: excerpt,
-  };
+  ];
 
   return (
     <Layout>

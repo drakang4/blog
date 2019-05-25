@@ -19,11 +19,11 @@ type Props = {
 const BlogPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <div className="center mv4 ph3 mw7">
-        <h1 className="f1 mb4 near-black">포스트</h1>
+      <div className="center ph3 mw7">
+        <h1 className="f1 mv4 near-black">포스트</h1>
         <div>
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <PostListItem data={node} />
+            <PostListItem key={node.fields.slug} data={node} />
           ))}
         </div>
       </div>

@@ -51,6 +51,7 @@ export const query = graphql`
         website
         startDate
         endDate
+        summary
         highlights
       }
       projects {
@@ -58,6 +59,7 @@ export const query = graphql`
         url
         startDate
         endDate
+        summary
         highlights
       }
       educations {

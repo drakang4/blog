@@ -85,7 +85,7 @@ collections:
               { label: Faculty, name: faculty, widget: string },
               { label: Study Type, name: studyType, widget: string },
               { label: Start Date, name: startDate, widget: date },
-              { label: End Date, name: endDate, widget: date },
+              { label: End Date, name: endDate, widget: date, required: false },
             ],
         }
   - label: Post

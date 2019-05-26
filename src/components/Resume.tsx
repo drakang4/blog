@@ -77,7 +77,7 @@ const Resume: React.FC<Props> = ({ data }) => {
               </a>
             </h3>
             <span className="f5 mr2">{work.role}</span>
-            <span className="f6">
+            <span className="f6 gray">
               {formatDuration(work.startDate, work.endDate)}
             </span>
             <Ul>
@@ -103,7 +103,8 @@ const Resume: React.FC<Props> = ({ data }) => {
                 <Icon name="open-in-new" className="ml2 blue no-print" />
               </a>
             </h3>
-            <span className="font-weight-light font-size-1 ml-2">
+            <span className="f5 mr2">{project.summary}</span>
+            <span className="f6 gray">
               {formatDuration(project.startDate, project.endDate)}
             </span>
             <Ul>
@@ -122,7 +123,7 @@ const Resume: React.FC<Props> = ({ data }) => {
             <span className="f5 mr2">
               {education.faculty} {education.studyType}
             </span>
-            <span className="f6">
+            <span className="f6 gray">
               {formatDuration(education.startDate, education.endDate)}
             </span>
           </div>

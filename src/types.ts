@@ -45,6 +45,7 @@ export interface Resume {
     website: string;
     startDate: string;
     endDate: string;
+    summary: string;
     highlights: string[];
   }[];
   projects: {
@@ -52,6 +53,7 @@ export interface Resume {
     url: string;
     startDate: string;
     endDate: string;
+    summary: string;
     highlights: string[];
   }[];
   educations: {

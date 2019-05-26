@@ -37,6 +37,7 @@
       "website": "https://www.styleshare.kr",
       "startDate": "2018-11-19T05:44:49.059Z",
       "endDate": "",
+      "summary": ".",
       "highlights": [
         ""
       ]
@@ -45,8 +46,9 @@
       "company": "눔코리아",
       "role": "그로스 엔지니어 인턴",
       "website": "https://noom.co.kr/",
-      "startDate": "2019-05-25T05:46:06.643Z",
-      "endDate": "2019-05-25T05:46:06.661Z",
+      "startDate": "2017-11-01T05:46:06.643Z",
+      "endDate": "2018-02-28T05:46:06.661Z",
+      "summary": ".",
       "highlights": [
         "구매 전환율 상승을 핵심 목표로 MixPanel Funnel 데이터를 기반으로 A/B 테스트 설계 및 실행",
         "GatsbyJS를 이용해 실험 페이지 및 프로모션 페이지 제작"
@@ -59,7 +61,7 @@
     {
       "school": "숭실대학교",
       "faculty": "글로벌미디어학부",
-      "studyType": "재학",
+      "studyType": "휴학",
       "startDate": "2017-03-02T05:46:25.954Z",
       "endDate": ""
     },
@@ -68,7 +70,7 @@
       "faculty": "해킹방어과",
       "studyType": "졸업",
       "startDate": "2014-03-03T05:47:01.512Z",
-      "endDate": "2017-02-01T05:47:01.533Z"
+      "endDate": "2017-02-28T05:47:01.533Z"
     }
   ],
   "name": "강희룡",
@@ -92,10 +94,11 @@
   ],
   "projects": [
     {
-      "name": "Jamak: 크로스 플랫폼 자막 파일 에디터",
+      "name": "Jamak",
       "url": "https://github.com/drakang4/jamak",
-      "startDate": "2019-05-25T06:10:48.085Z",
-      "endDate": "2019-05-25T06:10:48.122Z",
+      "startDate": "2016-07-14T06:10:48.085Z",
+      "endDate": "",
+      "summary": "크로스 플랫폼 자막 파일 에디터",
       "highlights": [
         "Electron IPC를 활용한 프로세스 커뮤니케이션",
         "Redux 기반 상태 관리",
@@ -103,10 +106,11 @@
       ]
     },
     {
-      "name": "GFCalendar: 아이돌 스케줄, 콘텐츠 제공 웹 앱",
+      "name": "GFCalendar",
       "url": "https://github.com/drakang4/gfcalendar-demo",
-      "startDate": "2019-05-25T06:11:34.814Z",
-      "endDate": "2019-05-25T06:11:34.835Z",
+      "startDate": "2017-03-12T06:11:34.814Z",
+      "endDate": "2017-07-27T06:11:34.835Z",
+      "summary": "아이돌 스케줄, 콘텐츠 제공 웹 앱",
       "highlights": [
         "react-virtualized를 사용하여 많은 데이터를 효과적으로 렌더링할 수 있는 캘린더 컴포넌트 개발",
         "Express 기반의 GraphQL 서버를 구성하고 Apollo 클라이언트에 연결해 데이터 fetch",

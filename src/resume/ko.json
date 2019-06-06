@@ -37,9 +37,14 @@
       "website": "https://www.styleshare.kr",
       "startDate": "2018-11-19T05:44:49.059Z",
       "endDate": "",
-      "summary": ".",
+      "summary": "스타일쉐어에서 배운 것",
       "highlights": [
-        ""
+        "Braze를 활용하여 A/B 테스트 설계 및 개발",
+        "A/B 테스트 파이프라인 설계",
+        "Google Analytics Amplitude Hotjar 툴 쓰고 있고 GTM을 정말 고민 많이했고 잘 쓸 줄 안다는 걸 말하자",
+        "Google Optimize도 빠질 수 없고",
+        "SQL 사용해서 데이터 뽑는거",
+        "웹 스쿼드 얘기도"
       ]
     },
     {
@@ -48,10 +53,11 @@
       "website": "https://noom.co.kr/",
       "startDate": "2017-11-01T05:46:06.643Z",
       "endDate": "2018-02-28T05:46:06.661Z",
-      "summary": ".",
+      "summary": "눔코리아에서 배운 것",
       "highlights": [
-        "구매 전환율 상승을 핵심 목표로 MixPanel Funnel 데이터를 기반으로 A/B 테스트 설계 및 실행",
-        "GatsbyJS를 이용해 실험 페이지 및 프로모션 페이지 제작"
+        "구매 전환율 상승을 핵심 목표로 A/B 테스트 설계 및 개발",
+        "Mixpanel Funnel 데이터를 활용하여 A/B 테스트 퍼널 데이터 측정 및 분석",
+        "GatsbyJS를 사용하여 실험 페이지 및 프로모션 페이지 개발"
       ]
     }
   ],
@@ -100,9 +106,9 @@
       "endDate": "",
       "summary": "크로스 플랫폼 자막 파일 에디터",
       "highlights": [
-        "Electron IPC를 활용한 프로세스 커뮤니케이션",
-        "Redux 기반 상태 관리",
-        "WebAudio API와 Canvas 라이브러리 Konva를 사용하여 오디오 웨이브 폼 시각화"
+        "Electron 기반으로 Windows와 macOS에서 실행 가능한 크로스 플랫폼 애플리케이션 개발",
+        "WebAudio API와 Canvas 라이브러리 Konva를 사용하여 Canvas에 오디오 웨이브 폼 시각화",
+        "Redux를 사용하여 앱 상태 관리"
       ]
     },
     {
@@ -112,10 +118,10 @@
       "endDate": "2017-07-27T06:11:34.835Z",
       "summary": "아이돌 스케줄, 콘텐츠 제공 웹 앱",
       "highlights": [
-        "react-virtualized를 사용하여 많은 데이터를 효과적으로 렌더링할 수 있는 캘린더 컴포넌트 개발",
-        "Express 기반의 GraphQL 서버를 구성하고 Apollo 클라이언트에 연결해 데이터 fetch",
-        "Redis 서버에 스케줄 및 콘텐츠 데이터 캐싱",
-        "Docker와 CircleCI를 사용한 빌드 및 배포"
+        "react-virtualized을 기반으로 1000일 이상의 날짜 정보를 효율적으로 렌더링할 수 있는 캘린더 개발",
+        "Express 기반으로 GraphQL 서버를 구축하고 Apollo 클라이언트를 이용하여 데이터 연결",
+        "응답 속도 최적화를 위하여 Redis 인스턴스에 스케줄 및 콘텐츠 데이터 캐싱",
+        "Docker와 CircleCI를 사용하여 빌드 및 배포"
       ]
     }
   ]

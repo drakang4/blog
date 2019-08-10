@@ -17,12 +17,10 @@
 
 @tailwind utilities;
 
-/* purgecss start ignore */
 @import '~prismjs/themes/prism-tomorrow.css';
 
-/* @import '~gutenberg-css' print; */
+@import '~gutenberg-css' print;
 
 .utterances {
   max-width: none;
 }
-/* purgecss end ignore */

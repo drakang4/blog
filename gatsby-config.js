@@ -15,6 +15,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
+        ignore: ['prismjs/', 'gutenberg-css/'], // Ignore files/folders
       },
     },
     {

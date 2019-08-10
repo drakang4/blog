@@ -1,8 +1,5 @@
 import React from 'react';
 
-const files = require.context('../assets/icons', false, /.*\.svg$/);
-files.keys().forEach(files);
-
 type Props = {
   name: string;
   className?: string;

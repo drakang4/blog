@@ -6,6 +6,9 @@ import Footer from './Footer';
 
 import '../styles/main.css';
 
+const icons = require.context('../assets/icons', false, /.*\.svg$/);
+icons.keys().forEach(filename => icons(filename));
+
 const Layout: React.FC = ({ children }) => (
   <div>
     <Helmet>

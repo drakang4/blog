@@ -1,8 +1,28 @@
-@import '~tachyons';
+@tailwind base;
+
+.remark h1,
+.remark h2,
+.remark h3,
+.remark h4,
+.remark h5,
+.remark h6 {
+  @apply my-6;
+}
+
+.remark p {
+  @apply my-8;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* purgecss start ignore */
 @import '~prismjs/themes/prism-tomorrow.css';
 
-@import '~gutenberg-css' print;
+/* @import '~gutenberg-css' print; */
 
 .utterances {
   max-width: none;
 }
+/* purgecss end ignore */

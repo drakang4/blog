@@ -9,7 +9,11 @@ type Props = {
 };
 
 const Icon: React.FC<Props> = ({ name, className }) => (
-  <svg className={`dib v-mid ${className}`} width="1em" height="1em">
+  <svg
+    className={`inline-block align-middle ${className}`}
+    width="1em"
+    height="1em"
+  >
     <use xlinkHref={`#${name}`} />
   </svg>
 );

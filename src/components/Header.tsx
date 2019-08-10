@@ -5,8 +5,8 @@ const Header: React.FC = () => {
   return (
     <header className="no-print">
       <nav role="navigation">
-        <div className="center flex pa3">
-          <Link to="/" className="f4 fw7 link dim near-black">
+        <div className="p-4">
+          <Link to="/" className="text-lg font-bold text-gray-900">
             Heeryong Kang
           </Link>
         </div>

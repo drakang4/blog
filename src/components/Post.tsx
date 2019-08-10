@@ -12,14 +12,16 @@ const Post: React.FC<Props> = ({ data }) => {
 
   return (
     <article>
-      <header className="mb4">
-        <h1 className="mv2 f2 fw7 lh-title dark-gray">{title}</h1>
-        <div className="f6 gray">
+      <header>
+        <h1 className="text-3xl font-bold text-gray-900 leading-tight">
+          {title}
+        </h1>
+        <div className="text-sm mt-4 text-gray-600">
           <span>{formatDate(date)}</span> · <span>{timeToRead}분 분량</span>
         </div>
       </header>
-      <section className="dark-gray">
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+      <section className="mt-8 text-gray-800">
+        <div className="remark" dangerouslySetInnerHTML={{ __html: html }} />
       </section>
     </article>
   );

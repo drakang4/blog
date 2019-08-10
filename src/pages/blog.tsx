@@ -12,7 +12,7 @@ type Props = {
       edges: [
         {
           node: MarkdownRemark;
-        }
+        },
       ];
     };
   };
@@ -23,9 +23,9 @@ const BlogPage: React.FC<Props> = ({ data }) => {
     <Layout>
       <SEO title="포스트" pathname="/blog" />
       <BreadCrumList data={[{ name: '블로그', pathname: '/blog' }]} />
-      <div className="center ph3 mw7">
-        <h1 className="f1 mv4 near-black">포스트</h1>
-        <div>
+      <div className="mx-auto px-4 max-w-3xl">
+        <h1 className="text-5xl font-bold text-gray-900 my-8">포스트</h1>
+        <div className="my-8">
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <PostListItem key={node.fields.slug} data={node} />
           ))}

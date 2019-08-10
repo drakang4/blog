@@ -10,21 +10,19 @@ type Props = {
 
 const PostListItem: React.FC<Props> = ({ data }) => {
   return (
-    <div key={data.frontmatter.title} className="pv2 mb4">
-      <Link to={data.fields.slug} className="db f3 fw7 mb3 link blue lh-title">
-        {data.frontmatter.title}
-      </Link>
+    <div key={data.frontmatter.title} className="my-8">
+      <p className="text-lg font-bold my-4 text-blue-500">
+        <Link to={data.fields.slug}>{data.frontmatter.title}</Link>
+      </p>
       <div className="flex flex-row">
-        <div className="flex-auto flex flex-column mr3 mr5-l">
-          <div className="flex-auto flex flex-column">
-            <div className="flex-auto mb3">
-              <Link to={data.fields.slug} className="link lh-copy dark-gray">
+        <div className="flex-auto flex flex-col mr-5 lg:mr-10">
+          <div className="flex-auto flex flex-col">
+            <p className="flex-auto mb-4">
+              <Link to={data.fields.slug} className="">
                 {data.excerpt}
               </Link>
-            </div>
-            <div className="lh-solid dark-gray f6">
-              {formatDate(data.frontmatter.date)}
-            </div>
+            </p>
+            <p className="text-sm">{formatDate(data.frontmatter.date)}</p>
           </div>
           {/* <div className="tags">
         {node.frontmatter.tags.map(tag => (

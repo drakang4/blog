@@ -20,7 +20,7 @@
   "dependencies": {
     "@types/react-helmet": "^5.0.8",
     "@types/url-join": "^4.0.0",
-    "gatsby": "2.13.40",
+    "gatsby": "2.13.57",
     "gatsby-image": "2.2.7",
     "gatsby-plugin-feed": "^2.2.1",
     "gatsby-plugin-google-tagmanager": "^2.0.13",

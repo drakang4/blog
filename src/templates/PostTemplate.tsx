@@ -65,7 +65,7 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
           { name: title, pathname: fields.slug },
         ]}
       />
-      <div className="mx-auto my-6 max-w-3xl py-4 lg:py-0">
+      <div className="max-w-3xl mx-auto my-8 print:my-0">
         <Post data={markdownRemark} />
       </div>
       <Utterances />

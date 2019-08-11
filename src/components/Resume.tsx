@@ -5,8 +5,12 @@ import Icon from './Icon';
 import { formatDuration } from '../utils/i18n';
 import { Resume as ResumeData } from '../types';
 
-const Section: React.FC = ({ children, ...props }) => (
-  <section {...props} className="my-20">
+const Section: React.FC<{ className?: string }> = ({
+  children,
+  className,
+  ...props
+}) => (
+  <section {...props} className={`my-20 ${className}`}>
     {children}
   </section>
 );
@@ -75,7 +79,7 @@ type Props = {
 const Resume: React.FC<Props> = ({ data }) => {
   return (
     <>
-      <Section>
+      <Section className="print:mt-0">
         <h1 className="text-6xl font-extrabold my-4 text-gray-900">
           {data.name}
         </h1>
@@ -140,7 +144,7 @@ const Resume: React.FC<Props> = ({ data }) => {
           />
         ))}
       </Section>
-      <Section>
+      <Section className="print:mb-0">
         <SectionHeading>학력</SectionHeading>
         {data.educations.map(education => (
           <div key={education.school} className="my-4">

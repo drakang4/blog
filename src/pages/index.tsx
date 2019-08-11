@@ -21,7 +21,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
       <Helmet>
         <html lang={resumeJson.lang} />
       </Helmet>
-      <div className="max-w-3xl mx-auto my-8 px-4 lg:px-0 text-gray-800">
+      <div className="max-w-3xl mx-auto my-8 print:my-0 px-4 lg:px-0 text-gray-800">
         <Resume data={resumeJson} />
       </div>
     </Layout>

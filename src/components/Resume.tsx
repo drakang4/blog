@@ -48,7 +48,7 @@ const Description: React.FC<{
   endDate: string;
   highlights: any[];
 }> = ({ name, url, summary, startDate, endDate, highlights, ...props }) => (
-  <div {...props}>
+  <div {...props} className="my-4">
     <DescriptionHeading>
       <a
         href={url}

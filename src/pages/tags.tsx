@@ -7,16 +7,16 @@ const TagsPage = () => {
 
 export default TagsPage;
 
-export const allTagsQuery = graphql`
-  query AllTags {
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            tags
-          }
-        }
-      }
-    }
-  }
-`;
+// export const allTagsQuery = graphql`
+//   query AllTags {
+//     allMarkdownRemark {
+//       edges {
+//         node {
+//           frontmatter {
+//             tags
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;

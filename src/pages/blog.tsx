@@ -35,35 +35,35 @@ const BlogPage: React.FC<Props> = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 100
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 100, truncate: true)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date
-            thumbnail {
-              childImageSharp {
-                fixed(width: 128, height: 128, quality: 80) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
-            }
-            tags
-          }
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allMarkdownRemark(
+//       limit: 100
+//       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+//       sort: { fields: [frontmatter___date], order: DESC }
+//     ) {
+//       edges {
+//         node {
+//           excerpt(pruneLength: 100, truncate: true)
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             date
+//             thumbnail {
+//               childImageSharp {
+//                 fixed(width: 128, height: 128, quality: 80) {
+//                   ...GatsbyImageSharpFixed_withWebp
+//                 }
+//               }
+//             }
+//             tags
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default BlogPage;

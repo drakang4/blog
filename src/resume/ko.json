@@ -59,8 +59,8 @@
         {
           "heading": "이벤트 및 프로모션 랜딩 페이지 개발",
           "highlights": [
-            "Lerna 기반 모노레포 관리",
             "Utility-First CSS (Tachyons CSS, Tailwinds CSS)를 활용한 스타일링",
+            "Lerna 기반 모노레포 관리",
             "Parcel을 사용하여 모듈 번들링"
           ]
         }

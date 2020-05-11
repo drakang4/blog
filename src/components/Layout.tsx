@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -7,7 +7,7 @@ import Footer from './Footer';
 import '../styles/main.css';
 
 const icons = require.context('../assets/icons', false, /.*\.svg$/);
-icons.keys().forEach(filename => icons(filename));
+icons.keys().forEach((filename) => icons(filename));
 
 const Layout: React.FC = ({ children }) => (
   <div>

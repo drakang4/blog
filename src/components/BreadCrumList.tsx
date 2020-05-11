@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import urlJoin from 'url-join';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 

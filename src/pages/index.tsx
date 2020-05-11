@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import { Resume as ResumeData } from '../types';
 import Resume from '../components/Resume';
 import SEO from '../components/SEO';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 type Props = {
   data: {
@@ -51,8 +51,10 @@ export const query = graphql`
         website
         startDate
         endDate
-        summary
-        highlights
+        descriptions {
+          heading
+          highlights
+        }
       }
       projects {
         name
@@ -60,12 +62,19 @@ export const query = graphql`
         startDate
         endDate
         summary
-        highlights
+        descriptions {
+          highlights
+        }
       }
       educations {
         school
         faculty
         studyType
+        startDate
+        endDate
+      }
+      etcs {
+        text
         startDate
         endDate
       }

@@ -4,7 +4,7 @@ import Post from '../components/Post';
 import Layout from '../components/Layout';
 import { MarkdownRemark } from '../types';
 import Utterances from '../components/Utterances';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import SEO from '../components/SEO';
 import BreadCrumList from '../components/BreadCrumList';
 
@@ -75,27 +75,27 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
 
 export default PostTemplate;
 
-export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      excerpt
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        date
-        thumbnail {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 80) {
-              src
-            }
-          }
-        }
-        tags
-      }
-      timeToRead
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query BlogPostByID($id: String!) {
+//     markdownRemark(id: { eq: $id }) {
+//       html
+//       excerpt
+//       fields {
+//         slug
+//       }
+//       frontmatter {
+//         title
+//         date
+//         thumbnail {
+//           childImageSharp {
+//             fluid(maxWidth: 1200, quality: 80) {
+//               src
+//             }
+//           }
+//         }
+//         tags
+//       }
+//       timeToRead
+//     }
+//   }
+// `;

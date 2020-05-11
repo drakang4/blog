@@ -3,7 +3,7 @@ import emailRegex from 'email-regex';
 import humanizeUrl from 'humanize-url';
 import Icon from './Icon';
 import { formatDuration } from '../utils/i18n';
-import { Resume as ResumeData } from '../types';
+import { Resume as ResumeData, ResumeDescription } from '../types';
 
 const Section: React.FC<{ className?: string }> = ({
   children,
@@ -25,19 +25,19 @@ const SectionHeading: React.FC = ({ children, ...props }) => (
 );
 
 const Ul: React.FC = ({ children, ...props }) => (
-  <ul {...props} className="my-4">
+  <ul {...props} className="my-2 pl-5 list-disc">
     {children}
   </ul>
 );
 
 const Li: React.FC = ({ children, ...props }) => (
-  <li {...props} className="my-1 list-disc list-inside">
+  <li {...props} className="my-1">
     {children}
   </li>
 );
 
 const DescriptionHeading: React.FC = ({ children, ...props }) => (
-  <h3 className="my-1 text-xl font-medium">{children}</h3>
+  <h3 className="my-1 text-xl font-bold">{children}</h3>
 );
 
 const Description: React.FC<{
@@ -46,8 +46,8 @@ const Description: React.FC<{
   summary: string;
   startDate: string;
   endDate: string;
-  highlights: any[];
-}> = ({ name, url, summary, startDate, endDate, highlights, ...props }) => (
+  descriptions: ResumeDescription[];
+}> = ({ name, url, summary, startDate, endDate, descriptions, ...props }) => (
   <div {...props} className="my-4">
     <DescriptionHeading>
       <a
@@ -64,11 +64,22 @@ const Description: React.FC<{
     <span className="text-sm text-gray-600">
       {formatDuration(startDate, endDate)}
     </span>
-    <Ul>
-      {highlights.map(highlight => (
-        <Li key={highlight}>{highlight}</Li>
+    <div className="mt-4 mb-10">
+      {descriptions.map((description, i) => (
+        <div key={i} className="mb-6">
+          {description.heading && (
+            <h4 className="font-medium text-gray-900">{description.heading}</h4>
+          )}
+          {Array.isArray(description.highlights) && (
+            <Ul>
+              {description.highlights.map((highlight, i) => (
+                <Li key={i}>{highlight}</Li>
+              ))}
+            </Ul>
+          )}
+        </div>
       ))}
-    </Ul>
+    </div>
   </div>
 );
 
@@ -83,12 +94,12 @@ const Resume: React.FC<Props> = ({ data }) => {
         <h1 className="text-6xl font-extrabold my-4 text-gray-900">
           {data.name}
         </h1>
-        <p className="text-xl font-light my-4">{data.summary}</p>
+        <p className="text-xl my-4 text-gray-600">{data.summary}</p>
       </Section>
       <Section>
         <SectionHeading>연락처</SectionHeading>
         <Ul>
-          {data.contacts.map(contact => (
+          {data.contacts.map((contact) => (
             <Li key={contact.network}>
               <Icon name={contact.icon} className="mr-2 text-lg" />
               <a
@@ -109,7 +120,7 @@ const Resume: React.FC<Props> = ({ data }) => {
       </Section>
       <Section>
         <SectionHeading>테크 스택</SectionHeading>
-        {data.skills.map(skill => (
+        {data.skills.map((skill) => (
           <div key={skill.name} className="my-4">
             <DescriptionHeading>{skill.name}</DescriptionHeading>
             <p className="my-3">{skill.keywords.join(', ')}</p>
@@ -118,7 +129,7 @@ const Resume: React.FC<Props> = ({ data }) => {
       </Section>
       <Section>
         <SectionHeading>이력</SectionHeading>
-        {data.works.map(work => (
+        {data.works.map((work) => (
           <Description
             key={work.company}
             name={work.company}
@@ -126,13 +137,13 @@ const Resume: React.FC<Props> = ({ data }) => {
             summary={work.role}
             startDate={work.startDate}
             endDate={work.endDate}
-            highlights={work.highlights}
+            descriptions={work.descriptions}
           />
         ))}
       </Section>
       <Section>
         <SectionHeading>사이드 프로젝트</SectionHeading>
-        {data.projects.map(project => (
+        {data.projects.map((project) => (
           <Description
             key={project.name}
             name={project.name}
@@ -140,13 +151,13 @@ const Resume: React.FC<Props> = ({ data }) => {
             summary={project.summary}
             startDate={project.startDate}
             endDate={project.endDate}
-            highlights={project.highlights}
+            descriptions={project.descriptions}
           />
         ))}
       </Section>
-      <Section className="print:mb-0">
+      <Section>
         <SectionHeading>학력</SectionHeading>
-        {data.educations.map(education => (
+        {data.educations.map((education) => (
           <div key={education.school} className="my-4">
             <DescriptionHeading>{education.school}</DescriptionHeading>
             <span className="text-lg mr-2">
@@ -154,6 +165,17 @@ const Resume: React.FC<Props> = ({ data }) => {
             </span>
             <span className="text-sm text-gray-600">
               {formatDuration(education.startDate, education.endDate)}
+            </span>
+          </div>
+        ))}
+      </Section>
+      <Section className="print:mb-0">
+        <SectionHeading>기타</SectionHeading>
+        {data.etcs.map((etc) => (
+          <div key={etc.text} className="my-4">
+            <span className="mr-2">{etc.text}</span>
+            <span className="text-sm text-gray-600">
+              {formatDuration(etc.startDate, etc.endDate)}
             </span>
           </div>
         ))}

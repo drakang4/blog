@@ -18,7 +18,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/react-helmet": "^5.0.15",
+    "@types/react-helmet": "^6.0.0",
     "@types/url-join": "^4.0.0",
     "email-regex": "^4.0.0",
     "gatsby": "^2.21.21",

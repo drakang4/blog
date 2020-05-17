@@ -13,7 +13,14 @@
     },
     {
       "name": "React",
-      "keywords": ["React", "Redux", "Styled Components", "Apollo", "Gatsby"]
+      "keywords": [
+        "React",
+        "Redux",
+        "Styled Components",
+        "Gatsby",
+        "Apollo",
+        "Storybook"
+      ]
     },
     {
       "name": "개발 도구",
@@ -42,9 +49,9 @@
         {
           "heading": "AARRR 퍼널별 전환율 개선 A/B 테스트 실행",
           "highlights": [
+            "Braze Custom HTML 인앱 메시지를 활용한 인앱 A/B 테스트 실행",
             "Google Optimize를 도입하여 웹 사이트 A/B 테스트 환경 구축",
             "Google Tag Manager를 도입하여 웹 사이트 데이터 트래킹 코드 관리 효율화",
-            "Braze In-App Messaging을 활용한 인 앱 A/B 테스트 실행",
             "Amplitude, Google Analytics 등 분석 도구 통합"
           ]
         },
@@ -61,7 +68,7 @@
           "heading": "그로스팀 관리자 도구 개발",
           "highlights": [
             "콘텐츠, 유저 부스터/디부스터 개발",
-            "인 앱 마케팅 팝업 코드 제너레이터 개발",
+            "인앱 마케팅 팝업 코드 제너레이터 개발",
             "Ant Design 컴포넌트 활용"
           ]
         }
@@ -84,7 +91,7 @@
     }
   ],
   "templateKey": "resume",
-  "summary": "호기심 많은 웹 개발자입니다. 새로운 기술을 배우는 것을 좋아하여 다양한 일을 경험해 보길 원하고 다재다능한 제너럴리스트 성향을 가지고 있습니다. 지속 가능한 성장이 제품 개발의 가장 중요한 가치라고 여깁니다. 언젠가는 창업에 도전해 보는 것이 꿈이라 스타트업에 관심이 많습니다.",
+  "summary": "호기심 많은 웹 개발자입니다. 새로운 기술을 배우는 것을 좋아하여 다양한 일을 경험해 보길 원하는 제너럴리스트 성향을 가지고 있습니다. 사용자가 만족하는 제품을 만드는 것이 개발의 가장 중요한 가치라고 여깁니다. 언젠가는 창업에 도전해 보는 것이 꿈이라 스타트업에 관심이 많습니다.",
   "educations": [
     {
       "school": "숭실대학교",

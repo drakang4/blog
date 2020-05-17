@@ -1,5 +1,7 @@
-const language =
-  typeof window !== 'undefined' ? window.navigator.language : 'ko';
+// const language =
+//   typeof window !== 'undefined' ? window.navigator.language : 'ko';
+
+const language = 'ko';
 
 function formatDate(date: string | number | Date) {
   return new Intl.DateTimeFormat(language, {
@@ -30,7 +32,7 @@ function formatDuration(
         year: 'numeric',
         month: 'short',
       }).format(new Date(endDate))
-    : 'Present';
+    : '현재';
 
   return `${formattedStartDate} - ${formattedEndDate}`;
 }

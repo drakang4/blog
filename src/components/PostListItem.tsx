@@ -24,22 +24,12 @@ const PostListItem: React.FC<Props> = ({ data }) => {
             </p>
             <p className="text-sm">{formatDate(data.frontmatter.date)}</p>
           </div>
-          {/* <div className="tags">
-        {node.frontmatter.tags.map(tag => (
-          // <Link key={tag} to={`/tags/${tag}`}>
-          <Badge key={tag} color="light" className="mr-1">
-            {tag}
-          </Badge>
-          // </Link>
-        ))}
-      </div> */}
         </div>
         <div>
           <Link to={data.fields.slug}>
             <GatsbyImage
               fixed={data.frontmatter.thumbnail.childImageSharp.fixed}
               alt={data.frontmatter.title}
-              // className="mw3 mw-none-ns"
             />
           </Link>
         </div>

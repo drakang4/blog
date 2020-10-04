@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "outline: none 못생겼다고 무조건 숨기면 안되는 이유"
+title: CSS :focus 스타일을 키보드 사용자에게만 보여주기 (:focus-visible)
 date: 2020-10-04T14:37:25.928Z
 thumbnail: /images/스크린샷-2020-10-04-오후-11.35.28.png
 ---
@@ -14,10 +14,9 @@ thumbnail: /images/스크린샷-2020-10-04-오후-11.35.
 
 키보드 사용자는 `Tab` 또는 `Shift + Tab` 키를 누르면서 `<a>`, `<button>`, `<input>` 과 같은 상호작용 가능한 엘리먼트를 포커스합니다. 만약 포커스 스타일이 없다면 사용자는 현재 포커스된 엘리먼트를 시각적으로 인지할 수 없습니다.
 
-
 ## `:focus` vs `:focus-visible`
 
-하지만 포커스 스타일을 제거하고 싶은 요구사항으로 인해 `outline: none;`, `outline: 0;` 스타일을 적용한면 접근성과 충돌이 생깁니다. 이럴 때에 `:focus-visible` 선택자를 활용하면 접근성을 헤치지 않고 포커스 링을 숨기는 딜레마를 해결할 수 있습니다. 
+하지만 포커스 스타일을 제거하고 싶은 요구사항으로 인해 `outline: none;`, `outline: 0;` 스타일을 적용한면 접근성과 충돌이 생깁니다. 이런 경우에`:focus-visible` 선택자를 활용하면 접근성을 헤치지 않고 포커스 링을 숨기는 딜레마를 해결할 수 있습니다. 
 
 `:focus`와 다르게, `:focus-visible`은 마우스나 터치 같은 포인팅을 사용할 때는 적용되지 않고 키보드를 사용하여 포커스 할 때만 적용됩니다.
 
@@ -31,11 +30,11 @@ thumbnail: /images/스크린샷-2020-10-04-오후-11.35.
 
 안타깝게도 `:focus-visible`은 대부분의 브라우저에서 2020년 10월 기준으로 대부분의 브라우저에서 사용할 수 없습니다.
 
-파이어폭스와 크롬 86 버전부터 지원됩니다.
+![:focus-visible 브라우저 지원](/images/스크린샷-2020-10-04-오후-11.52.17.png ":focus-visible 브라우저 지원")
 
 그래서 다양한 브라우저에서 지원하기 위해서는 `:focus-visible`을 자바스크립트로 구현한 [폴리필](https://github.com/WICG/focus-visible)을 사용할 수 있습니다. 
 
-폴리필을 사용해도 작성하는 CSS는 비슷합니다.
+폴리필을 사용해도 CSS는 비슷하게 작성할 수 있습니다.
 
 ```css
 .js-focus-visible :focus:not(.focus-visible) {

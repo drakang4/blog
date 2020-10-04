@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "outline: none 못생겼다고 숨기면 안되는 이유"
+title: "outline: none 못생겼다고 무조건 숨기면 안되는 이유"
 date: 2020-10-04T14:37:25.928Z
 thumbnail: /images/스크린샷-2020-10-04-오후-11.35.28.png
 ---

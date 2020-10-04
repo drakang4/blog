@@ -8,43 +8,43 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-// exports.createPages = async ({ actions, graphql }) => {
-//   const { createPage } = actions;
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions;
 
-//   const { data, errors } = await graphql(`
-//     {
-//       allMarkdownRemark(
-//         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-//       ) {
-//         edges {
-//           node {
-//             id
-//             fields {
-//               slug
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
+  const { data, errors } = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
 
-//   if (errors) {
-//     errors.forEach(e => console.error(e.toString()));
-//     throw result.errors;
-//   }
+  if (errors) {
+    errors.forEach((e) => console.error(e.toString()));
+    throw result.errors;
+  }
 
-//   data.allMarkdownRemark.edges.forEach(edge => {
-//     createPage({
-//       path: edge.node.fields.slug,
-//       component: path.resolve(`src/templates/PostTemplate.tsx`),
+  data.allMarkdownRemark.edges.forEach((edge) => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: path.resolve(`src/templates/PostTemplate.tsx`),
 
-//       // additional data can be passed via context
-//       context: {
-//         id: edge.node.id,
-//       },
-//     });
-//   });
-// };
+      // additional data can be passed via context
+      context: {
+        id: edge.node.id,
+      },
+    });
+  });
+};
 
 exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -60,10 +60,5 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       node,
       value: `/blog${relativePath}`,
     });
-
-    node.frontmatter.thumbnail = path.relative(
-      path.dirname(node.fileAbsolutePath),
-      path.join(__dirname, '/static/', node.frontmatter.thumbnail),
-    );
   }
 };

@@ -17,7 +17,7 @@ const Post: React.FC<Props> = ({ data }) => {
           {title}
         </h1>
         <div className="text-sm mt-4 text-gray-600">
-          <span>{formatDate(date)}</span> · <span>{timeToRead}분 분량</span>
+          <span>{formatDate(date)}</span>
         </div>
       </header>
       <section className="mt-8 text-gray-800">

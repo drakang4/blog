@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 const Utterances = React.lazy(() => import('../components/Utterances'));
+
 interface QueryResult {
   mdx: Mdx;
 }
@@ -64,12 +65,13 @@ const PostTemplate = ({ data }: PageProps<QueryResult>) => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
       </SEO>
-
       <Layout>
         <Post title={title} body={body} date={date} />
-        <Suspense fallback={null}>
-          <Utterances />
-        </Suspense>
+        {typeof window !== 'undefined' && (
+          <Suspense fallback={null}>
+            <Utterances />
+          </Suspense>
+        )}
       </Layout>
     </>
   );

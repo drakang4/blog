@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="no-print">
-      <nav role="navigation">
+      <nav>
         <div className="p-4">
-          <Link to="/" className="text-lg font-bold text-gray-900">
+          <Link
+            to="/"
+            className="text-lg font-bold text-gray-900 dark:text-gray-100"
+          >
             Heeryong Kang
           </Link>
         </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import { MarkdownRemark } from '../types';
+import { Mdx } from '../types/types';
 import { formatDate } from '../utils/i18n';
 
-type Props = {
-  data: MarkdownRemark;
-};
+interface Props {
+  data: Mdx;
+}
 
-const PostListItem: React.FC<Props> = ({ data }) => {
+const PostListItem = ({ data }: Props) => {
   return (
     <div key={data.frontmatter.title} className="my-8">
       <p className="text-lg font-bold my-4 text-blue-500">
@@ -27,10 +27,10 @@ const PostListItem: React.FC<Props> = ({ data }) => {
         </div>
         <div>
           <Link to={data.fields.slug}>
-            <GatsbyImage
+            {/* <GatsbyImage
               fixed={data.frontmatter.thumbnail.childImageSharp.fixed}
               alt={data.frontmatter.title}
-            />
+            /> */}
           </Link>
         </div>
       </div>

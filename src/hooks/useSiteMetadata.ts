@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import { SiteMetaData } from '../types';
+import { SiteMetaData } from '../types/types';
 
 interface Site {
   site: {
@@ -8,21 +8,20 @@ interface Site {
 }
 
 export const useSiteMetadata = () => {
-  const { site } = useStaticQuery<Site>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-            logo
-            image
-          }
-        }
-      }
-    `,
-  );
+  const { site } = useStaticQuery<Site>(query);
 
   return site.siteMetadata;
 };
+
+const query = graphql`
+  query SiteQuery {
+    site {
+      siteMetadata {
+        defaultTitle
+        description
+        siteUrl
+        logo
+      }
+    }
+  }
+`;

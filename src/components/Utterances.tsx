@@ -9,26 +9,19 @@ const Utterances = () => {
       src: 'https://utteranc.es/client.js',
       repo: 'drakang4/blog',
       'issue-term': 'pathname',
-      theme: 'github-light',
+      theme: 'preferred-color-scheme',
       crossorigin: 'anonymous',
       async: true,
     };
 
-    Object.keys(utterancesConfig).forEach(configKey => {
-      utterances.setAttribute(configKey, utterancesConfig[configKey]);
+    Object.entries(utterancesConfig).forEach(([key, value]) => {
+      utterances.setAttribute(key, value);
     });
 
-    if (wrapper.current) {
-      wrapper.current.appendChild(utterances);
-    }
+    wrapper.current?.appendChild(utterances);
   }, []);
 
-  return (
-    <div
-      ref={wrapper}
-      className="utterances-wrapper mx-auto max-w-3xl py-4 lg:py-0 "
-    />
-  );
+  return <div ref={wrapper} className="mx-auto max-w-3xl py-4 lg:py-0 " />;
 };
 
 export default Utterances;

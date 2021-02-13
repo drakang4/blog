@@ -1,27 +1,18 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
+
+  const postTemplate = path.resolve('./src/templates/PostTemplate.tsx');
 
   const { data, errors } = await graphql(`
     {
-      allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
+      allMdx(filter: { frontmatter: { templateKey: { eq: "blog-post" } } }) {
+        nodes {
+          id
+          fields {
+            slug
           }
         }
       }
@@ -29,31 +20,36 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   if (errors) {
-    errors.forEach((e) => console.error(e.toString()));
-    throw result.errors;
+    reporter.panicOnBuild('There was an error loading your blog posts', errors);
+    return;
   }
 
-  data.allMarkdownRemark.edges.forEach((edge) => {
-    createPage({
-      path: edge.node.fields.slug,
-      component: path.resolve(`src/templates/PostTemplate.tsx`),
+  const posts = data.allMdx.nodes;
 
-      // additional data can be passed via context
-      context: {
-        id: edge.node.id,
-      },
+  if (posts.length > 0) {
+    posts.forEach((post) => {
+      createPage({
+        path: post.fields.slug,
+        component: postTemplate,
+        context: {
+          id: post.id,
+        },
+      });
     });
-  });
+  }
 };
 
 exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'MarkdownRemark') {
+  if (
+    node.internal.type === 'Mdx' &&
+    node.frontmatter.templateKey === 'blog-post'
+  ) {
     const relativePath = createFilePath({
       node,
       getNode,
-      basePath: 'src/posts',
+      basePath: 'contents',
     });
     createNodeField({
       name: 'slug',

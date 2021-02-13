@@ -1,83 +1,48 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
+import Duration from '../components/Duration';
+import Timeline from '../components/Timeline';
+import TimelineDot from '../components/TimelineDot';
+import Icon from '../components/Icon';
 import Layout from '../components/Layout';
-import { Resume as ResumeData } from '../types';
-import Resume from '../components/Resume';
 import SEO from '../components/SEO';
-import { Helmet } from 'react-helmet';
 
-type Props = {
-  data: {
-    resumeJson: ResumeData;
+interface QueryResult {
+  mdx: {
+    body: string;
   };
+}
+
+const shortcodes = {
+  Duration,
+  Timeline,
+  TimelineDot,
+  Icon,
 };
 
-const IndexPage: React.FC<Props> = ({ data }) => {
-  const { resumeJson } = data;
-
+const IndexPage = ({ data }: PageProps<QueryResult>) => {
   return (
-    <Layout>
-      <SEO title={resumeJson.name} description={resumeJson.summary} />
-      <Helmet>
-        <html lang={resumeJson.lang} />
-      </Helmet>
-      <div className="max-w-3xl mx-auto my-8 print:my-0 px-4 lg:px-0 text-gray-800">
-        <Resume data={resumeJson} />
-      </div>
-    </Layout>
+    <>
+      <SEO title="이력서" />
+      <Layout>
+        <article className="max-w-3xl mx-auto my-8 print:my-0 px-4 lg:px-0 print:px-0">
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </MDXProvider>
+        </article>
+      </Layout>
+    </>
   );
 };
 
 export default IndexPage;
 
 export const query = graphql`
-  query {
-    resumeJson {
-      lang
-      name
-      summary
-      contacts {
-        network
-        icon
-        url
-      }
-      skills {
-        name
-        keywords
-      }
-      works {
-        company
-        role
-        website
-        startDate
-        endDate
-        descriptions {
-          heading
-          highlights
-        }
-      }
-      projects {
-        name
-        url
-        startDate
-        endDate
-        summary
-        descriptions {
-          highlights
-        }
-      }
-      educations {
-        school
-        faculty
-        studyType
-        startDate
-        endDate
-      }
-      etcs {
-        text
-        startDate
-        endDate
-      }
+  query ResumeQuery {
+    mdx(frontmatter: { templateKey: { eq: "resume" } }) {
+      body
     }
   }
 `;

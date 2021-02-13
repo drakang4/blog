@@ -1,32 +1,29 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { Suspense } from 'react';
+import { graphql, PageProps } from 'gatsby';
 import Post from '../components/Post';
 import Layout from '../components/Layout';
-import { MarkdownRemark } from '../types';
-import Utterances from '../components/Utterances';
-import { Helmet } from 'react-helmet';
+import { Mdx } from '../types/types';
 import SEO from '../components/SEO';
-import BreadCrumList from '../components/BreadCrumList';
 
-type Props = {
-  data: {
-    markdownRemark: MarkdownRemark;
-  };
-};
+const Utterances = React.lazy(() => import('../components/Utterances'));
+interface QueryResult {
+  mdx: Mdx;
+}
 
-const PostTemplate: React.FC<Props> = ({ data }) => {
-  const { markdownRemark } = data;
+const PostTemplate = ({ data }: PageProps<QueryResult>) => {
+  const { mdx } = data;
   const {
+    body,
     excerpt,
     fields,
     frontmatter: { title, thumbnail, date },
-  } = markdownRemark;
+  } = mdx;
 
   const schemaOrgJSONLD = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: title,
-    image: [thumbnail.childImageSharp.fluid.src],
+    // image: [thumbnail.childImageSharp.fluid.src],
     datePublished: date,
     dateModified: date,
     author: {
@@ -41,14 +38,17 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={excerpt}
         pathname={fields.slug}
-        image={thumbnail.childImageSharp.fluid.src}
-      />
-      <Helmet>
+        breadcrum={[
+          { name: '블로그', pathname: '/blog' },
+          { name: title, pathname: fields.slug },
+        ]}
+        // image={thumbnail.childImageSharp.fluid.src}
+      >
         {/* Append Facebook Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={date} />
@@ -58,27 +58,24 @@ const PostTemplate: React.FC<Props> = ({ data }) => {
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
-      </Helmet>
-      <BreadCrumList
-        data={[
-          { name: '블로그', pathname: '/blog' },
-          { name: title, pathname: fields.slug },
-        ]}
-      />
-      <div className="max-w-3xl mx-auto my-8 print:my-0">
-        <Post data={markdownRemark} />
-      </div>
-      <Utterances />
-    </Layout>
+      </SEO>
+
+      <Layout>
+        <Post title={title} body={body} date={date} />
+        <Suspense fallback={null}>
+          <Utterances />
+        </Suspense>
+      </Layout>
+    </>
   );
 };
 
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
+  query PostQuery($id: String!) {
+    mdx(id: { eq: $id }) {
+      body
       excerpt
       fields {
         slug
@@ -86,13 +83,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
-        thumbnail {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 80) {
-              src
-            }
-          }
-        }
+        # thumbnail {
+        #   childImageSharp {
+        #     fluid(maxWidth: 1200, quality: 80) {
+        #       src
+        #     }
+        #   }
+        # }
       }
     }
   }

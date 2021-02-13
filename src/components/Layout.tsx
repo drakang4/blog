@@ -1,27 +1,18 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import Header from './Header';
 import Footer from './Footer';
 
-import '../styles/main.css';
+interface Props {
+  children?: React.ReactNode;
+}
 
-const icons = require.context('../assets/icons', false, /.*\.svg$/);
-icons.keys().forEach((filename) => icons(filename));
-
-const Layout: React.FC = ({ children }) => (
-  <div>
-    <Helmet>
-      <html lang="ko" />
-      <title>Heeryong Kang</title>
-      <meta name="description" content="Heeryong Kang's blog" />
-      <link rel="icon" sizes="192x192" href="/favicon.png" />
-      <link rel="apple-touch-icon" href="/favicon.png" />
-    </Helmet>
+const Layout = ({ children }: Props) => (
+  <>
     <Header />
-    <main role="main">{children}</main>
+    <main>{children}</main>
     <Footer />
-  </div>
+  </>
 );
 
 export default Layout;

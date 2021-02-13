@@ -1,9 +1,6 @@
-// const language =
-//   typeof window !== 'undefined' ? window.navigator.language : 'ko';
-
 const language = 'ko';
 
-function formatDate(date: string | number | Date) {
+export function formatDate(date: string | number | Date) {
   return new Intl.DateTimeFormat(language, {
     year:
       new Date(date).getFullYear() === new Date().getFullYear()
@@ -13,28 +10,3 @@ function formatDate(date: string | number | Date) {
     day: 'numeric',
   }).format(new Date(date));
 }
-
-function formatDuration(
-  startDate: string | number | Date,
-  endDate: string | number | Date,
-) {
-  if (!startDate) {
-    return '';
-  }
-
-  const formattedStartDate = new Intl.DateTimeFormat(language, {
-    year: 'numeric',
-    month: 'short',
-  }).format(new Date(startDate));
-
-  const formattedEndDate = endDate
-    ? new Intl.DateTimeFormat(language, {
-        year: 'numeric',
-        month: 'short',
-      }).format(new Date(endDate))
-    : '현재';
-
-  return `${formattedStartDate} - ${formattedEndDate}`;
-}
-
-export { language, formatDate, formatDuration };

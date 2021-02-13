@@ -1,11 +1,11 @@
 import React from 'react';
 
-type Props = {
+interface Props {
   name: string;
   className?: string;
-};
+}
 
-const Icon: React.FC<Props> = ({ name, className }) => (
+const Icon = ({ name, className }: Props) => (
   <svg
     className={`inline-block align-middle ${className}`}
     width="1em"

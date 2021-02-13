@@ -48,13 +48,16 @@ export const query = graphql`
         frontmatter {
           title
           date
-          # thumbnail {
-          #   childImageSharp {
-          #     fixed(width: 128, height: 128, quality: 80, cropFocus: CENTER) {
-          #       ...GatsbyImageSharpFixed_withWebp
-          #     }
-          #   }
-          # }
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(
+                width: 128
+                height: 128
+                placeholder: BLURRED
+                layout: FIXED
+              )
+            }
+          }
         }
       }
     }

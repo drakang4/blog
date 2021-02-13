@@ -1,9 +1,11 @@
 import React, { Suspense } from 'react';
 import { graphql, PageProps } from 'gatsby';
+import urlJoin from 'url-join';
 import Post from '../components/Post';
 import Layout from '../components/Layout';
 import { Mdx } from '../types/types';
 import SEO from '../components/SEO';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 const Utterances = React.lazy(() => import('../components/Utterances'));
 interface QueryResult {
@@ -11,6 +13,7 @@ interface QueryResult {
 }
 
 const PostTemplate = ({ data }: PageProps<QueryResult>) => {
+  const siteMetadata = useSiteMetadata();
   const { mdx } = data;
   const {
     body,
@@ -21,9 +24,11 @@ const PostTemplate = ({ data }: PageProps<QueryResult>) => {
 
   const schemaOrgJSONLD = {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'BlogPosting',
     headline: title,
-    // image: [thumbnail.childImageSharp.fluid.src],
+    image: [
+      urlJoin(siteMetadata.siteUrl, thumbnail.childImageSharp.resize.src),
+    ],
     datePublished: date,
     dateModified: date,
     author: {
@@ -47,7 +52,7 @@ const PostTemplate = ({ data }: PageProps<QueryResult>) => {
           { name: '블로그', pathname: '/blog' },
           { name: title, pathname: fields.slug },
         ]}
-        // image={thumbnail.childImageSharp.fluid.src}
+        image={thumbnail.childImageSharp.resize.src}
       >
         {/* Append Facebook Open Graph */}
         <meta property="og:type" content="article" />
@@ -83,13 +88,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
-        # thumbnail {
-        #   childImageSharp {
-        #     fluid(maxWidth: 1200, quality: 80) {
-        #       src
-        #     }
-        #   }
-        # }
+        thumbnail {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+            }
+          }
+        }
       }
     }
   }

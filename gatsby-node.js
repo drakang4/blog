@@ -50,6 +50,7 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
       node,
       getNode,
       basePath: 'contents',
+      trailingSlash: false,
     });
     createNodeField({
       name: 'slug',

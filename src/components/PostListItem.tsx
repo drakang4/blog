@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import GatsbyImage from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Mdx } from '../types/types';
 import { formatDate } from '../utils/i18n';
 
@@ -9,6 +9,8 @@ interface Props {
 }
 
 const PostListItem = ({ data }: Props) => {
+  const image = getImage(data.frontmatter.thumbnail)!;
+
   return (
     <div key={data.frontmatter.title} className="my-8">
       <p className="text-lg font-bold my-4 text-blue-500">
@@ -27,10 +29,7 @@ const PostListItem = ({ data }: Props) => {
         </div>
         <div>
           <Link to={data.fields.slug}>
-            {/* <GatsbyImage
-              fixed={data.frontmatter.thumbnail.childImageSharp.fixed}
-              alt={data.frontmatter.title}
-            /> */}
+            <GatsbyImage image={image} alt={data.frontmatter.title} />
           </Link>
         </div>
       </div>

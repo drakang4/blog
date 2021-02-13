@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/images`,
+        path: `${__dirname}/contents/images`,
         name: 'images',
       },
     },
@@ -30,18 +30,19 @@ module.exports = {
         name: 'resume',
       },
     },
+    'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins: [
-          'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 960,
               linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
           'gatsby-remark-copy-linked-files',

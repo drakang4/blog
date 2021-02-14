@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
-const NotFoundPage: React.FC = () => (
-  <div className="flex flex-column items-stretch justify-center vw-100 vh-100 pa3 tc">
-    <h1 className="title is-1">NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
+const NotFoundPage = () => (
+  <Layout>
+    <div className="p-4 text-center">
+      <h1>NOT FOUND</h1>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    </div>
+  </Layout>
 );
 
 export default NotFoundPage;

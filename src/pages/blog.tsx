@@ -21,7 +21,7 @@ const BlogPage = ({ data }: PageProps<QueryResult>) => {
       />
       <Layout>
         <div className="mx-auto px-4 max-w-3xl">
-          <h1 className="my-8">포스트</h1>
+          <h1>포스트</h1>
           <div className="my-8">
             {data.allMdx.nodes.map((node) => (
               <PostListItem key={node.fields.slug} data={node} />

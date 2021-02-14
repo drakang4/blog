@@ -13,7 +13,7 @@ const Post = ({ title, body, date }: Props) => {
   return (
     <article className="max-w-3xl mx-auto my-8 print:my-0 px-4 lg:px-0 print:px-0">
       <header>
-        <h1 className="text-3xl font-bold leading-tight">{title}</h1>
+        <h1 className="text-3xl leading-tight">{title}</h1>
         <Duration>{formatDate(date)}</Duration>
       </header>
       <section className="mt-8">

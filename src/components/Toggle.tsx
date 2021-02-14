@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useTheme from '../hooks/useTheme';
 
 const Toggle = () => {
-  const [checked, setChecked] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    setChecked(document.documentElement.classList.contains('dark'));
-  }, []);
+  if (!theme) {
+    return null;
+  }
 
-  useEffect(() => {
-    if (checked) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [checked]);
+  const isDark = theme === 'dark';
 
   return (
     <button
       className="relative cursor-pointer self-center"
       role="switch"
       aria-label="어두운 모드 사용"
-      aria-checked={checked}
-      onClick={() => setChecked(!checked)}
+      aria-checked={isDark}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       <div className="w-12 h-6 rounded-full bg-gray-900">
         <div className="absolute top-0 left-0.5">🌚</div>
@@ -31,7 +24,7 @@ const Toggle = () => {
       </div>
       <div
         className={`w-6 h-6 absolute left-0 top-0 bg-white border border-solid border-gray-900 rounded-full transition-transform transform ${
-          checked ? 'translate-x-full' : undefined
+          isDark ? 'translate-x-full' : undefined
         }`}
       />
     </button>

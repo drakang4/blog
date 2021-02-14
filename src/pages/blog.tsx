@@ -55,6 +55,7 @@ export const query = graphql`
                 height: 128
                 placeholder: BLURRED
                 layout: FIXED
+                transformOptions: { cropFocus: CENTER }
               )
             }
           }

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const getInitialTheme = () => {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  return document.documentElement.classList.contains('dark');
-};
-
 const Toggle = () => {
-  const [checked, setChecked] = useState(getInitialTheme);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    setChecked(document.documentElement.classList.contains('dark'));
+  }, []);
 
   useEffect(() => {
     if (checked) {

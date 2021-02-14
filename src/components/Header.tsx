@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Toggle from './Toggle';
 
 const Header = () => {
   return (
-    <header className="no-print">
+    <header className="no-print flex justify-between p-4">
       <nav>
-        <div className="p-4">
-          <Link
-            to="/"
-            className="text-lg font-bold text-gray-900 dark:text-gray-100"
-          >
-            Heeryong Kang
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="text-lg font-bold text-gray-900 dark:text-gray-100"
+        >
+          Heeryong Kang
+        </Link>
       </nav>
+      <Toggle />
       {/* <Navbar
         // light={!scrolled}
         // dark={scrolled}

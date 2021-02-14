@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Toggle from './Toggle';
 
 const Header = () => {
   return (
-    <header className="no-print flex justify-between p-4">
+    <header className="no-print flex justify-between p-4 mx-auto max-w-screen-2xl">
       <nav>
         <Link
           to="/"
@@ -13,42 +12,11 @@ const Header = () => {
           Heeryong Kang
         </Link>
       </nav>
-      <Toggle />
-      {/* <Navbar
-        // light={!scrolled}
-        // dark={scrolled}
-        // color={scrolled ? 'dark' : 'transparent'}
-        bg="transparent"
-        expand="md"
-        expanded={opened}
-        onToggle={this.handleNavToggle}
-        role="navigation"
-      >
-        <Navbar.Brand as={Link} to="/">
-          Heeryong Kang
-        </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Nav>
-            <Nav.Item>
-              <Nav.Link
-                href="#"
-                onSelect={() => this.handleChangeLanguage('en')}
-              >
-                Eng
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                href="#"
-                onSelect={() => this.handleChangeLanguage('ko')}
-              >
-                Kor
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar> */}
+      <nav>
+        <Link to="/blog" className="text-gray-900 dark:text-gray-100">
+          Blog
+        </Link>
+      </nav>
     </header>
   );
 };

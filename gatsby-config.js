@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-remove-trailing-slashes',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -31,7 +32,9 @@ module.exports = {
       },
     },
     'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-remark-images',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -45,18 +48,8 @@ module.exports = {
               withWebp: true,
             },
           },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-responsive-iframe',
           'gatsby-remark-prismjs',
         ],
-      },
-    },
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-remove-trailing-slashes',
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     {

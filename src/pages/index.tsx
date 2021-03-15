@@ -3,8 +3,7 @@ import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import Duration from '../components/Duration';
-import Timeline from '../components/Timeline';
-import TimelineDot from '../components/TimelineDot';
+import ExternalLink from '../components/ExternalLink';
 import Icon from '../components/Icon';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -17,8 +16,7 @@ interface QueryResult {
 
 const shortcodes = {
   Duration,
-  Timeline,
-  TimelineDot,
+  ExternalLink,
   Icon,
 };
 

@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 const Header = () => {
   return (
-    <header className="no-print flex justify-between p-4 mx-auto max-w-screen-2xl">
+    <header className="print:hidden flex justify-between p-4 mx-auto max-w-screen-2xl">
       <nav>
         <Link
           to="/"

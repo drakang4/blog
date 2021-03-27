@@ -17,9 +17,9 @@ thumbnail: ../images/스크린샷-2020-10-04-오후-11.35.28.png
 
 ## `:focus` vs `:focus-visible`
 
-하지만 포커스 스타일을 제거하고 싶은 요구사항으로 인해 `outline: none;`, `outline: 0;` 스타일을 적용한면 접근성과 충돌이 생깁니다. 이런 경우에`:focus-visible` 선택자를 활용하면 접근성을 헤치지 않고 포커스 링을 숨기는 딜레마를 해결할 수 있습니다.
+하지만 포커스 스타일을 시각적인 이유만으로 제거하고 싶은 요구사항으로 인해 `outline: none;`, `outline: 0;` 스타일을 적용한다면 접근성에 하자가 생깁니다. 이런 경우에 `:focus-visible` 선택자를 활용하면 접근성을 헤치지 않고 포커스 링을 숨기는 딜레마를 해결할 수 있습니다.
 
-`:focus`와 다르게, `:focus-visible`은 마우스나 터치 같은 포인팅을 사용할 때는 적용되지 않고 키보드를 사용하여 포커스 할 때만 적용됩니다.
+`:focus-visible`은 `:focus`와 다르게, 마우스나 터치 같은 포인팅 기반 입력을 사용할 때는 적용되지 않고 키보드를 사용하여 포커스 할 때만 적용됩니다.
 
 ```css
 :focus:not(:focus-visible) {
@@ -27,18 +27,34 @@ thumbnail: ../images/스크린샷-2020-10-04-오후-11.35.28.png
 }
 ```
 
-## 브라우저 지원
+## 브라우저 지원과 폴리필
 
-안타깝게도 `:focus-visible`은 대부분의 브라우저에서 2020년 10월 기준으로 대부분의 브라우저에서 사용할 수 없습니다.
+안타깝게도 `:focus-visible`은 2020년 10월 기준으로 대부분의 브라우저에서 사용할 수 없습니다.
 
 ![:focus-visible 브라우저 지원](../images/스크린샷-2020-10-04-오후-11.52.17.png)
 
-그래서 다양한 브라우저에서 지원하기 위해서는 `:focus-visible`을 자바스크립트로 구현한 [폴리필](https://github.com/WICG/focus-visible)을 사용할 수 있습니다.
+다양한 브라우저에서 지원하기 위해서는 `:focus-visible`을 자바스크립트로 구현한 [폴리필](https://github.com/WICG/focus-visible)을 사용할 수 있습니다.
 
-폴리필을 사용해도 CSS는 비슷하게 작성할 수 있습니다.
+npm으로 폴리필을 설치합니다.
+
+```sh
+$ npm install focus-visible
+```
+
+자바스크립트 코드 상단에서 폴리필을 불러옵니다.
+
+```js
+import 'focus-visible';
+```
+
+CSS는 아래와 같이 작성할 수 있습니다. 폴리필이 `<body>`에 `.js-focus-visible` class를 추가하고 키보드를 사용하여 포커스 하면 해당 요소에 `.focus-visible` class를 추가합니다.
 
 ```css
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
 ```
+
+## 마무리
+
+focus-visible은 UI의 비주얼과 접근성 사이에서 고민을 하고 있다면 합리적인 선택 방법으로 고려해보면 좋은 기능입니다. 더 많은 브라우저가 지원하여 폴리필 없이 사용 가능할 수 있기를 기대합니다.

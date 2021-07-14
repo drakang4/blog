@@ -4,16 +4,18 @@ templateKey: resume
 
 # 강희룡
 
-<p className="text-xl leading-snug text-gray-600 dark:text-gray-400">
-  호기심 많은 프론트엔드 개발자입니다. 새로운 기술을 배우는 것을 좋아하여 다양한
+<p className="text-xl leading-snug text-gray-600 dark:text-gray-400 mt-6">
+  호기심 많은 프론트엔드 개발자입니다. 새로운 기술을 배우는 것을 좋아하며 다양한
   일을 경험해 보길 원하는 제너럴리스트 성향을 가지고 있습니다. 넓은 범위의
   노력과 시도로 목표에 도전하기를 즐깁니다.
 </p>
 <p className="text-xl leading-snug text-gray-600 dark:text-gray-400">
   사용자가 만족하는 제품을 만드는 것이 개발의 가장 중요한 가치라고 여깁니다.
-  제품을 사용하며 불편한 고충을 마주치지 않는지 살피며 매끄러운 경험 설계를
+  제품을 직접 사용하며 사용자가 불편한 고충을 마주치지 않는지 살피며 매끄러운 경험 설계를
   중시합니다.
 </p>
+
+<br />
 
 ## 연락처
 
@@ -21,11 +23,13 @@ templateKey: resume
 - [github.com/drakang4](https://github.com/drakang4)
 - [linkedin.com/in/drakang4](https://www.linkedin.com/in/drakang4)
 
+<br />
+
 ## 이력
 
 ### 스타일쉐어 <ExternalLink href="https://www.styleshare.kr/store" />
 
-누적 가입자 700만명 패션・뷰티 커뮤니티 기반 커머스 플랫폼
+누적 가입자 700만명 패션・뷰티 커뮤니티, 커머스 플랫폼, 무신사에 3,000억으로 인수
 
 <h4 className="mt-6">
   프론트엔드 엔지니어 <Duration>2020년 6월 - 현재</Duration>
@@ -33,26 +37,30 @@ templateKey: resume
 
 ##### 레거시 웹 사이트 리팩토링
 
-- API 서버 코드베이스에 결합된 레거시 프론트엔드 코드 분리 및 TypeScript로 전환
-- Styled Components, React Cosmos 기반 컴포넌트 시스템 개발
-- Babel, Webpack 컨픽 최적화하여 빌드 속도 5배 이상 개선
+- 파이썬 Flask 서버 코드베이스에 결합된 Jinja 코드 분리 및 모노레포 구조로 전환
+- JavaScript, jQuery 코드를 TypeScript 기반 React SPA와 Next.js 앱으로 마이그레이션
+- React Query 기반 상태 관리 구현
+- Styled Components, React Cosmos 기반 재사용 가능한 컴포넌트 시스템 개발
+- Babel, Webpack 컨픽 최적화하여 프로젝트 빌드 속도 개선
+- Core Web Vitals 성능 지표 개선
 - Jest, Testing Library 테스트 작성
 
-##### 접근성 개선
+##### 인 앱 웹뷰 페이지 개발
 
-- WAI-ARIA Authoring Practices를 참조하여 컴포넌트 및 웹 사이트 접근성 개선
+- 웹뷰 페이지와 네이티브 앱 사이의 통신 인터페이스 구현
+- 앱 메인 홈 화면 개편
+- 선물 요청하기 기능 런치
+
+##### 웹 접근성 개선
+
 - 누락되었던 탭 인덱스 및 ARIA 속성 보완
-- VoiceOver를 활용하여 스크린 리더 및 키보드 사용자 접근성 검증
+- WAI-ARIA Authoring Practices 참조한 컴포넌트 및 웹 사이트 접근성 개선
+- 스크린 리더 및 키보드 사용자 접근성 검증
 
 ##### 백오피스 어드민 개발
 
 - 컨텐츠 및 광고 구좌 운영 도구 개발
 - Material UI 컴포넌트 라이브러리 활용
-- React Query, React Hook Form 기반 상태 관리
-
-##### 인 앱 웹뷰 페이지 개발
-
-- 웹뷰 페이지와 네이티브 앱 사이의 통신 인터페이스 구현
 
 <h4 className="mt-6">
   그로스 엔지니어 <Duration>2018년 11월 - 2020년 6월</Duration>
@@ -81,33 +89,13 @@ templateKey: resume
 - React와 Gatsby를 이용하여 실험 페이지 및 프로모션 페이지 제작
 - MixPanel Funnel 데이터를 기반으로 A/B 테스트 설계 및 실행하여 구매 전환율 상승
 
-## 사이드 프로젝트
-
-### GFCalender <ExternalLink href="https://github.com/drakang4/gfcalendar-demo" />
-
-<h4 className="mt-6">
-  가수 스케줄, 콘텐츠 제공 웹 앱 <Duration>2017년 3월 - 2017년 7월</Duration>
-</h4>
-
-- Express.js 기반의 GraphQL 서버 구성 및 Apollo Client를 활용한 상태 관리
-- Docker와 CircleCI를 사용한 빌드 및 배포 자동화
-- 최대 DAU 1,000여명 달성
-
-### Jamak <ExternalLink href="https://github.com/drakang4/jamak" />
-
-<h4 className="mt-6">
-  크로스 플랫폼 자막 파일 에디터 <Duration>2016년 7월 - 2017년 3월</Duration>
-</h4>
-
-- Redux 기반의 동영상 플레이어 및 자막 타임라인 상태 관리
-- WebAudio API와 Canvas 라이브러리 Konva를 활용하여 오디오 웨이브 폼 시각화
-- Electron IPC를 활용하여 프로세스간 커뮤니케이션
+<br />
 
 ## 테크 스택
 
 ### JavaScript
 
-ECMAScript, TypeScript, Babel, Webpack, ESLint
+ECMAScript, TypeScript, Babel, Webpack, ESLint, Jest, Testing Library
 
 ### React
 
@@ -115,7 +103,9 @@ React, Redux, Styled Components, Emotion, Next.js, Gatsby, Storybook
 
 ### 개발 도구
 
-Git, CI/CD, Docker
+Git, CI/CD, Docker, AWS
+
+<br />
 
 ## 학력
 
@@ -126,6 +116,8 @@ IT대학 글로벌미디어학부 휴학 <Duration>2017년 3월 - 현재</Durati
 ### 한국디지털미디어고등학교
 
 해킹방어과 졸업 <Duration>2014년 3월 - 2017년 2월</Duration>
+
+<br />
 
 ## 기타
 
